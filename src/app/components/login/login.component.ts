@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Credenciais } from 'src/app/models/credenciais';
@@ -16,8 +17,9 @@ export class LoginComponent implements OnInit {
   private toastr: ToastrService;
   private auth: AuthService;
   private router: Router;
-
-  constructor(formBuilder: FormBuilder, toastr: ToastrService, auth: AuthService, router: Router) {
+  private snack: MatSnackBar;
+  
+  constructor(formBuilder: FormBuilder, toastr: ToastrService, auth: AuthService, router: Router, snack: MatSnackBar) {
     this.formLogin = formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
       senha: ["", [Validators.required, Validators.minLength(3)]]
@@ -25,9 +27,11 @@ export class LoginComponent implements OnInit {
     this.toastr = toastr;
     this.auth = auth;
     this.router = router;
+    this.snack = snack;
   }
-
+  
   ngOnInit(): void {
+    this.abrirSnackCookies()
   }
 
   public logar(): void {
@@ -51,5 +55,12 @@ export class LoginComponent implements OnInit {
     else {
       this.toastr.error("E-mail e/ou senha inválido.", "Login");
     }
+  }
+
+  abrirSnackCookies(){
+    let mensagem: string = "Esta aplicação utiliza cookies e prosseguir com sua utilização significa concordar com nossa politica de privacidade e termos de uso. Consulte o administrador do sistema."
+    this.snack.open(mensagem, "OK",{
+      horizontalPosition: 'start', verticalPosition: 'bottom', panelClass: "snack"
+    })
   }
 }
