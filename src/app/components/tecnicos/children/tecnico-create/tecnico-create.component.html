@@ -1,0 +1,32 @@
+<nav-bar>
+    <ng-container>
+        <h2>Cadastrar Técnico</h2>
+        <form #form="ngForm" (ngSubmit)="create(form)">
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input type="text" name="nome" matInput placeholder="Ex. Gabriel Braga" required maxlength="50" [(ngModel)]="tecnico.nome">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>CPF</mat-label>
+                <input type="text" name="cpf" matInput placeholder="Ex. 000.000.000-00" mask="000.000.000-00" required [(ngModel)]="tecnico.cpf">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input type="email" name="email" matInput placeholder="Ex. gabriel@mail.com" required email maxlength="50" [(ngModel)]="tecnico.email">
+            </mat-form-field>
+            <mat-form-field class="full-width" appearance="fill">
+                <mat-label>Senha</mat-label>
+                <input type="password" name="senha" matInput required="" minlength="3" [(ngModel)]="tecnico.senha">
+            </mat-form-field>
+
+            <section class="section">
+                <mat-checkbox color="primary" class="margin" (change)="addPerfil(0)">Administrador</mat-checkbox>
+                <mat-checkbox color="primary" class="margin" (change)="addPerfil(1)">Técnico</mat-checkbox>
+                <mat-checkbox color="primary" class="margin" (change)="addPerfil(2)">Cliente</mat-checkbox>
+            </section>
+
+            <button type="submit" mat-raised-button color="primary">Cadastrar</button>
+            <a type="button" mat-raised-button color="warn" routerLink="/tecnicos">Cancelar</a>
+        </form>
+    </ng-container>
+</nav-bar>

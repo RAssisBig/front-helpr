@@ -1,0 +1,14 @@
+<div class="login">
+    <form class="mat-elevation-z8" [formGroup]="formLogin" (ngSubmit)="logar()">
+        <img src="assets/img/ext1.png" alt="Helpr" class="full-width">
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>E-mail</mat-label>
+            <input type="email" matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Senha</mat-label>
+            <input type="password" matInput formControlName="senha">
+        </mat-form-field>
+        <button type="submit" mat-raised-button color="primary" class="full-width">Login</button>
+    </form>
+</div>

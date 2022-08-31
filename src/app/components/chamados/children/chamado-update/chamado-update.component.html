@@ -1,0 +1,50 @@
+<nav-bar>
+    <ng-container>
+        <h2>Editar Chamado</h2>
+
+        <form #form="ngForm" (ngSubmit)="update(form)">
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Título</mat-label>
+                <input type="text" matInput name="titulo" [(ngModel)]="chamado.titulo">
+            </mat-form-field>
+
+            <div class="status-prioridade">
+                <mat-form-field appearance="fill">
+                    <mat-label>Status</mat-label>
+                    <mat-select name="status" [(ngModel)]="chamado.status">
+                        <mat-option *ngFor="let status of statusList" [value]="status.value">{{ status.title }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+    
+                <mat-form-field appearance="fill">
+                    <mat-label>Prioridade</mat-label>
+                    <mat-select name="prioridade" [(ngModel)]="chamado.prioridade">
+                        <mat-option *ngFor="let prioridade of prioridadeList" [value]="prioridade.value">{{ prioridade.title }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Cliente</mat-label>
+                <mat-select name="cliente" [(ngModel)]="chamado.cliente">
+                    <mat-option *ngFor="let cliente of clienteList" [value]="cliente.id">{{ cliente.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Técnico</mat-label>
+                <mat-select name="tecnico" [(ngModel)]="chamado.tecnico">
+                    <mat-option *ngFor="let tecnico of tecnicoList" [value]="tecnico.id">{{ tecnico.nome }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Observações</mat-label>
+                <textarea matInput class="description" name="observacoes" [(ngModel)]="chamado.observacoes"></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary">Editar</button>
+            <a mat-raised-button color="warn" routerLink="/chamados">Cancelar</a>
+        </form>
+    </ng-container>
+</nav-bar>

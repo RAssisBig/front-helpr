@@ -1,0 +1,20 @@
+.status-prioridade {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    mat-form-field {
+        width: 48%;
+    }
+}
+
+.description {
+    min-height: 30px;
+    max-height: 80px;
+}
+
+form a,
+form button {
+    margin-left: 20px;
+    float: right;
+}

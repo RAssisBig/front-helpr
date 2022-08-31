@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>{{chamado.titulo}}</h2>
+<mat-dialog-content>
+    <dl class="list-details">
+        <dt>Id</dt>
+        <dd>{{chamado.id}}</dd>
+        <dt>Cliente</dt>
+        <dd>{{chamado.nomeCliente}}</dd>
+        <dt>Técnico</dt>
+        <dd>{{chamado.nomeTecnico}}</dd>
+        <dt>Status</dt>
+        <dd>{{chamado.status | status}}</dd>
+        <dt>Prioridade</dt>
+        <dd>{{chamado.prioridade | prioridade}}</dd>
+        <dt>Data de abertura</dt>
+        <dd>{{chamado.dataAbertura }}</dd>
+        <dt>Data de fechamento</dt>
+        <dd>{{chamado.dataFechamento | encerramento}}</dd>
+        <dt>Observações</dt>
+        <dd>{{chamado.observacoes}}</dd>
+    </dl>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close color="warn">Fechar</button>
+</mat-dialog-actions>

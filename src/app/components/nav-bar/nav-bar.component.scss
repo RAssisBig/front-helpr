@@ -1,0 +1,29 @@
+mat-drawer-container {
+    width: 100%;
+    height: 100%;
+}
+
+mat-drawer {
+    padding: 20px;
+}
+
+mat-toolbar {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+mat-toolbar a {
+    width: 60px;
+    height: 60px;
+}
+
+mat-toolbar img {
+    width: 100%;
+    height: 100%;
+}
+
+mat-nav-list a mat-icon {
+    margin-right: 10px;
+}
