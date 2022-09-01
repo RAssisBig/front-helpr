@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Credenciais } from 'src/app/models/credenciais';
 import { AuthService } from 'src/app/services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ClientesFuturosComponent } from './children/clientes-futuros/clientes-futuros.component';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +20,8 @@ export class LoginComponent implements OnInit {
   private auth: AuthService;
   private router: Router;
   private snack: MatSnackBar;
-  
-  constructor(formBuilder: FormBuilder, toastr: ToastrService, auth: AuthService, router: Router, snack: MatSnackBar) {
+
+  constructor(public dialog: MatDialog, formBuilder: FormBuilder, toastr: ToastrService, auth: AuthService, router: Router, snack: MatSnackBar) {
     this.formLogin = formBuilder.group({
       email: ["", [Validators.required, Validators.email]],
       senha: ["", [Validators.required, Validators.minLength(3)]]
@@ -28,8 +30,9 @@ export class LoginComponent implements OnInit {
     this.auth = auth;
     this.router = router;
     this.snack = snack;
+    this.dialog = dialog;
   }
-  
+
   ngOnInit(): void {
     this.abrirSnackCookies()
   }
@@ -62,5 +65,13 @@ export class LoginComponent implements OnInit {
     this.snack.open(mensagem, "OK",{
       horizontalPosition: 'start', verticalPosition: 'bottom', panelClass: "snack"
     })
+  }
+
+  openClientesFuturos(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(ClientesFuturosComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 }
