@@ -14,9 +14,18 @@
 
         <section class="section">
             <mat-radio-group>
-                <mat-radio-button color="primary" class="margin" value="0" (click)="filterByStatus(0)" #check1>Aberto</mat-radio-button>
-                <mat-radio-button color="primary" class="margin" value="1" (click)="filterByStatus(1)" #check2>Andamento</mat-radio-button>
-                <mat-radio-button color="primary" class="margin" value="2" (click)="filterByStatus(2)" #check3>Encerrado</mat-radio-button>
+                <mat-radio-button color="primary" class="margin" value="0" (click)="filterByStatus(0)" #check1>
+                    <mat-icon class="status">note_add</mat-icon>
+                    Aberto
+                </mat-radio-button>
+                <mat-radio-button color="primary" class="margin" value="1" (click)="filterByStatus(1)" #check2>
+                    <mat-icon class="status">pending_actions</mat-icon>
+                    Andamento
+                </mat-radio-button>
+                <mat-radio-button color="primary" class="margin" value="2" (click)="filterByStatus(2)" #check3>
+                    <mat-icon class="status">task</mat-icon>
+                    Encerrado
+                </mat-radio-button>
             </mat-radio-group>
 
             <button mat-icon-button (click)="clearFilter(input, check1, check2, check3)" matTooltip="Limpar filtro">
@@ -58,9 +67,11 @@
 
                 <ng-container matColumnDef="status">
                     <th mat-header-cell *matHeaderCellDef> Status </th>
-                    <td mat-cell *matCellDef="let chamado"> {{chamado.status | status}} </td>
+                    <td mat-cell *matCellDef="let chamado">
+                        <mat-icon class="status">{{convertInIcon(chamado.status)}}</mat-icon>
+                        {{chamado.status | status}} </td>
                 </ng-container>
-
+                
                 <ng-container matColumnDef="update">
                     <th mat-header-cell *matHeaderCellDef> Alterar </th>
                     <td mat-cell *matCellDef="let chamado">
