@@ -1,5 +1,21 @@
 table {
-    width: 100%;
+    width: 100%; 
+}
+
+table th {
+    font-weight: bolder;
+    color:#5e35b1;
+    font-size: medium;
+}
+
+table td {
+    font-weight: bold;
+}
+
+.id {
+    font-weight: bold;
+    font-size: large;
+
 }
 
 .container-title {
@@ -11,5 +27,7 @@ table {
 
     h2 {
         margin: 0;
+        font-size: large;
+        font-weight: bolder;
     }
 }
