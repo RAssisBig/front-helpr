@@ -7,6 +7,7 @@ import { Credenciais } from 'src/app/models/credenciais';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ClientesFuturosComponent } from './children/clientes-futuros/clientes-futuros.component';
+import { Tecnico } from 'src/app/models/tecnico';
 
 @Component({
   selector: 'app-login',
@@ -44,7 +45,24 @@ export class LoginComponent implements OnInit {
         next: response => {
           let token: string | undefined = response.headers.get('Authorization')?.substring(7);
           if(this.auth.setToken(token)) {
-            this.router.navigate(['/home']);
+            let decodeToken = this.auth.decodePayloadJWT();
+            this.auth.findByEmail(decodeToken.sub).subscribe({
+              next: response => {
+                let cred: Tecnico = response;
+                if(JSON.stringify(cred.perfis) == JSON.stringify(['ADMIN', 'TECNICO','CLIENTE']) || JSON.stringify(cred.perfis) == JSON.stringify(['ADMIN', 'CLIENTE','TECNICO']) 
+                  || JSON.stringify(cred.perfis) == JSON.stringify(['TECNICO', 'ADMIN','CLIENTE']) || JSON.stringify(cred.perfis) == JSON.stringify(['TECNICO', 'CLIENTE','ADMIN']) 
+                  || JSON.stringify(cred.perfis) == JSON.stringify(['CLIENTE', 'ADMIN','TECNICO']) || JSON.stringify(cred.perfis) == JSON.stringify(['CLIENTE', 'TECNICO','ADMIN'])){
+                  localStorage.setItem("role", "admin");
+                  this.router.navigate(['admin/dashboard']);
+                } if(JSON.stringify(cred.perfis) == JSON.stringify(['TECNICO', 'CLIENTE']) || JSON.stringify(cred.perfis) == JSON.stringify(['CLIENTE','TECNICO'])){
+                  localStorage.setItem("role", "tecnico");
+                  this.router.navigate(['/tecnico/dashboard']);
+                }if(JSON.stringify(cred.perfis) == JSON.stringify(['CLIENTE'])){
+                  localStorage.setItem("role", "cliente");
+                  this.router.navigate(['/cliente/dashboard']);
+                }
+              }
+            });
           }
           else {
             this.toastr.error("Acesso negado!", "Login");
