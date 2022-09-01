@@ -37,9 +37,14 @@
             <span>
                 <h1>HelpR</h1>
             </span>
-            <a routerLink="/home">
-                <img src="assets/icons/icon-72x72.png" alt="Logo">
-            </a>
+            <div class="boxcontainer">
+              <mat-slide-toggle color="secundary" [(ngModel)]="isChecked" (change)="changed($event)">
+                <mat-icon>{{ mode }}</mat-icon>
+              </mat-slide-toggle>
+              <a routerLink="/home">
+                <img src="assets/icons/icon-72x72.png" alt="Logo" />
+              </a>
+            </div>
         </mat-toolbar>
 
         <div class="container">

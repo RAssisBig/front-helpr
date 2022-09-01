@@ -1,12 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
 @import '../node_modules/ngx-toastr/toastr';
+@import '~@angular/material/theming';
 
 @include mat.core();
 
 $my-primary: mat.define-palette(mat.$deep-purple-palette, 600);
 $my-accent: mat.define-palette(mat.$purple-palette, 800);
 $my-warn: mat.define-palette(mat.$red-palette, 900);
+
+//Dark theme (paletas de cores para o tema escuro)
+
+$my-dark-theme: mat.define-dark-theme((
+    color: (
+        primary: $my-primary,
+        accent: $my-accent,
+        warn: $my-warn,
+    )
+));
+
+.darkMode {
+  @include mat.all-component-colors($my-dark-theme);
+}
+//Dark theme (fim darkthem :) ---  )
 
 $my-theme: mat.define-light-theme((
     color: (
@@ -22,12 +38,12 @@ $my-theme: mat.define-light-theme((
     box-sizing: border-box;
 }
 
-html, body { 
-    height: 100%; 
+html, body {
+    height: 100%;
 }
 
-body { 
-    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+body {
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 .container {
@@ -47,11 +63,11 @@ body {
     font-weight:500;
 }
 
-df-messenger { 
+df-messenger {
       --df-messenger-bot-message: #9e46fc;
       --df-messenger-user-message:  #405dec;
       --df-messenger-button-titlebar-color: #5E35B1;
       --df-messenger-chat-background-color: #fff;
-      --df-messenger-font-color: #fff;      
+      --df-messenger-font-color: #fff;
       --df-messenger-minimized-chat-close-icon-color: #fff;
 }
