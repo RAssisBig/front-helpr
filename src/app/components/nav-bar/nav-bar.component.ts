@@ -1,6 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
+const itemsMenu: any = [
+  {
+    route: "/home",
+    icone: "home",
+    content: "Página inicial"
+  },
+  {
+    route: "/clientes",
+    icone: "person",
+    content: "Cliente"
+  },
+  {
+    route: "/tecnicos",
+    icone: "support_agent",
+    content: "Técnicos"
+  },
+  {
+    route: "/chamados",
+    icone: "perm_phone_msg",
+    content: "Chamados"
+  },
+  {
+    route: "/faq",
+    icone: "quiz",
+    content: "FAQ"
+  },
+  {
+    route: "/logout",
+    icone: "logout",
+    content: "Sair"
+  }
+];
+
 @Component({
   selector: 'nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -18,4 +51,20 @@ export class NavBarComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  public menuList: any = itemsMenu;
+  
+  applyFilter(value: string): void {
+    if(value.length === 0){
+      this.menuList = itemsMenu;
+    }else {
+      this.menuList = itemsMenu.filter((menu: any) => {
+        if (menu.content.toLowerCase().indexOf(value.toLowerCase()) != -1) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+    }
+  }
 }
