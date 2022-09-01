@@ -1,15 +1,59 @@
 table {
-    width: 100%;
+  width: 100%;
+}
+table th{
+  font-weight: bolder;
+  color:#5e35b1;
+  font-size: medium;
+}
+table td{
+  font-weight: bold;
 }
 
-.container-title {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+.container-title{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  h2{
+    margin:0;font-weight: bolder;
+    font-size: large;
+  }
 
-    h2 {
-        margin: 0;
-    }
+}
+
+img{
+  padding-top: 20px;
+
+}
+
+****tecnicos create componente scss
+
+form a,
+form button {
+    margin-left: 20px;
+    float: right;
+    margin-top: 10px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.margin {
+    margin-right: 15px;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formulario{
+  width: 350px;
+  height: 75vh;
+  border-radius: 15px;
+  padding: 25px;
 }
