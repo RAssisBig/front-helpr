@@ -22,6 +22,7 @@ export class ChamadosComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
+  public progressBarChamados: boolean = false;
   private service: ChamadoService;
   private dialog: MatDialog;
 
@@ -40,6 +41,8 @@ export class ChamadosComponent implements OnInit {
       this.chamadoList = chamados;
       this.dataSource = new MatTableDataSource<Chamado>(this.chamadoList);
       this.dataSource.paginator = this.paginator;
+      this.progressBarChamados = true;
+
     });
   }
 
@@ -51,7 +54,7 @@ export class ChamadosComponent implements OnInit {
   filterByStatus(status: number): void {
     let filterList: Chamado[] = [];
     this.chamadoList.forEach(chamado => {
-      if(chamado.status === status) {
+      if (chamado.status === status) {
         filterList.push(chamado);
       }
     });
@@ -73,11 +76,11 @@ export class ChamadosComponent implements OnInit {
   }
 
   convertInIcon(status: number): string {
-    if(status == 0){
+    if (status == 0) {
       return "note_add";
-    }else if(status == 1){ 
+    } else if (status == 1) {
       return "pending_actions";
-    }else{
+    } else {
       return "task";
     }
   }

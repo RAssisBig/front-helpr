@@ -6,14 +6,14 @@
                 <mat-icon>add</mat-icon>
             </a>
         </div>
-        
+
         <mat-form-field appearance="standard" class="full-width">
             <mat-label>Filtro</mat-label>
             <input matInput (keyup)="applyFilter($event)" #input>
         </mat-form-field>
 
-        <div class="mat-elevation-z8">
-
+        <mat-progress-bar *ngIf="!progressBarCliente" mode="indeterminate"></mat-progress-bar>
+        <div class="mat-elevation-z8" *ngIf="progressBarCliente">
             <table mat-table [dataSource]="dataSource">
 
                 <ng-container matColumnDef="id">

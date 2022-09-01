@@ -25,6 +25,7 @@ export class ClientesComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  public progressBarCliente: boolean = false;
   private service: ClienteService;
   private toast: ToastrService;
 
@@ -47,6 +48,8 @@ export class ClientesComponent implements OnInit, AfterViewInit {
       this.clienteList = clientes;
       this.dataSource = new MatTableDataSource<Cliente>(this.clienteList);
       this.dataSource.paginator = this.paginator;
+      this.progressBarCliente = true;
+
     });
   }
 
