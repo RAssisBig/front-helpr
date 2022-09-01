@@ -1,5 +1,5 @@
 <div class="login">
-  <img src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/outsiteBanner/1.png" class="full-width">
+    <img src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/outsiteBanner/1.png" class="full-width">
     <form class="mat-elevation-z8" [formGroup]="formLogin" (ngSubmit)="logar()">
         <img src="assets/img/ext1.png" alt="Helpr" class="full-width">
         <mat-form-field appearance="fill" class="full-width">
@@ -12,4 +12,8 @@
         </mat-form-field>
         <button type="submit" mat-raised-button color="primary" class="full-width">Login</button>
     </form>
+    <df-messenger intent="WELCOME" chat-title="HelprAgent" agent-id="5b6e68b8-cb7a-4d7f-9c2e-fe44be9e9082"
+        language-code="pt-br"
+        chat-icon="https://user-images.githubusercontent.com/31005408/175540574-9d72bed8-746c-42b7-aaae-8f5dc28ac8e8.png">
+    </df-messenger>
 </div>
