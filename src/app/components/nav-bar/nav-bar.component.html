@@ -1,29 +1,14 @@
 <mat-drawer-container autosize>
     <mat-drawer #drawer mode="over">
+        <img src="https://user-images.githubusercontent.com/31005408/175540636-a2b67183-55dd-440b-a1f8-5d6484b008ea.png" alt="logo-helpr" class="logo-menu">
         <mat-nav-list>
-            <a mat-list-item routerLink="/home">
-                <mat-icon color="primary">home</mat-icon>
-                Página principal
-            </a>
-            <a mat-list-item routerLink="/clientes">
-                <mat-icon color="primary">person</mat-icon>
-                Clientes
-            </a>
-            <a mat-list-item routerLink="/tecnicos">
-                <mat-icon color="primary">support_agent</mat-icon>
-                Técnicos
-            </a>
-            <a mat-list-item routerLink="/chamados">
-                <mat-icon color="primary">perm_phone_msg</mat-icon>
-                Chamados
-            </a>
-            <a mat-list-item routerLink="/faq">
-                <mat-icon color="primary">quiz</mat-icon>
-                FAQ
-            </a>
-            <a mat-list-item routerLink="/logout">
-                <mat-icon color="primary">logout</mat-icon>
-                Sair
+            <mat-form-field appearance="standard" class="full-width">
+                <mat-label>Filtro</mat-label>
+                <input matInput (keyup)="applyFilter(input.value)" #input>
+            </mat-form-field>
+            <a mat-list-item [routerLink]="[menu.route]" *ngFor="let menu of menuList">
+                <mat-icon color="primary">{{menu.icone}}</mat-icon>
+                {{menu.content}}
             </a>
         </mat-nav-list>
     </mat-drawer>
