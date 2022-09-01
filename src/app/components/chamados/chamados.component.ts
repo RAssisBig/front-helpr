@@ -71,4 +71,14 @@ export class ChamadosComponent implements OnInit {
   openDetailsDialog(chamado: Chamado): void {
     this.dialog.open(ChamadoDetailsComponent, { data: chamado, width: "400px" });
   }
+
+  convertInIcon(status: number): string {
+    if(status == 0){
+      return "note_add";
+    }else if(status == 1){ 
+      return "pending_actions";
+    }else{
+      return "task";
+    }
+  }
 }
