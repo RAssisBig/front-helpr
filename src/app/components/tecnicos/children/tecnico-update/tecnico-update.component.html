@@ -25,8 +25,8 @@
                 <mat-checkbox color="primary" class="margin" (change)="addPerfil(2)" [checked]="perfisChecked[2]">Cliente</mat-checkbox>
             </section>
 
-            <button type="submit" mat-raised-button color="primary">Editar</button>
-            <a type="button" mat-raised-button color="warn" routerLink="/tecnicos">Cancelar</a>
+            <button type="submit" mat-raised-button color="primary" matTooltip="Enviar edição">Editar</button>
+            <a type="button" mat-raised-button color="warn" routerLink="/tecnicos" matTooltip="Cancelar edição">Cancelar</a>
         </form>
     </ng-container>
 </nav-bar>
