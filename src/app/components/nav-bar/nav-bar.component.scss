@@ -1,29 +1,49 @@
 mat-drawer-container {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 mat-drawer {
-    padding: 20px;
+  padding: 20px;
 }
 
 mat-toolbar {
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 mat-toolbar a {
-    width: 60px;
-    height: 60px;
+  width: 60px;
+  height: 60px;
 }
 
 mat-toolbar img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 mat-nav-list a mat-icon {
-    margin-right: 10px;
+  margin-right: 10px;
+}
+
+.boxcontainer {
+  width: 200px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-slide-toggle {
+  color: rgba(255, 255, 255, 0.753);
+  transform: scale(0.7);
+  transition: 0.7s;
+}
+
+mat-slide-toggle:hover {
+  width: 100px;
+  color: white;
+  transform: scale(1.1);
+  transition: 0.7s;
 }

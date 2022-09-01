@@ -10,6 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
 import { UtilsModule } from './utils/utils.module';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { FormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { AuthService } from './services/auth.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     BrowserAnimationsModule,
     PagesModule,
     ToastrModule.forRoot({
