@@ -1,0 +1,17 @@
+<form class="example-form" [formGroup]="clientesFuturos"  (ngSubmit)="enviarCliente()">
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input type="text" matInput formControlName="nome">
+  </mat-form-field>
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>Telefone</mat-label>
+    <input type="text" matInput formControlName="telefone">
+  </mat-form-field>
+  <mat-form-field class="full-width" appearance="fill">
+    <mat-label>E-mail</mat-label>
+    <input matInput formControlName="email">
+  </mat-form-field>
+  <button type="button" mat-raised-button mat-dialog-close color="warn">Fechar</button>
+  <button type="submit" mat-raised-button mat-dialog-close color="primary">Cadastrar</button>
+</form>
+
