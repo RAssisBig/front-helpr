@@ -25,6 +25,7 @@ export class TecnicosComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  public progressBarTecnicos = false;
   private service: TecnicoService;
   private toast: ToastrService;
 
@@ -47,6 +48,7 @@ export class TecnicosComponent implements OnInit, AfterViewInit {
       this.tecnicoList = tecnicos;
       this.dataSource = new MatTableDataSource<Tecnico>(this.tecnicoList);
       this.dataSource.paginator = this.paginator;
+      this.progressBarTecnicos = true;
     });
   }
 
