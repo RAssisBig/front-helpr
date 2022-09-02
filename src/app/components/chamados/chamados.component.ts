@@ -5,7 +5,11 @@ import { MatRadioButton } from '@angular/material/radio';
 import { MatTableDataSource } from '@angular/material/table';
 import { Chamado } from 'src/app/models/chamado';
 import { ChamadoService } from 'src/app/services/chamado.service';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { TecnicoService } from 'src/app/services/tecnico.service';
+import { ChamadoClientsComponent } from './children/chamado-clients/chamado-clients.component';
 import { ChamadoDetailsComponent } from './children/chamado-details/chamado-details.component';
+import { ChamadoTecnicosComponent } from './children/chamado-tecnicos/chamado-tecnicos.component';
 
 @Component({
   selector: 'app-chamados',
@@ -24,10 +28,14 @@ export class ChamadosComponent implements OnInit {
 
   public progressBarChamados: boolean = false;
   private service: ChamadoService;
+  private serviceTecnico: TecnicoService;
+  private serviceCliente: ClienteService;
   private dialog: MatDialog;
 
-  constructor(service: ChamadoService, dialog: MatDialog) {
+  constructor(service: ChamadoService, dialog: MatDialog, serviceCliente: ClienteService, serviceTecnico: TecnicoService) {
     this.service = service;
+    this.serviceTecnico = serviceTecnico;
+    this.serviceCliente = serviceCliente
     this.dialog = dialog;
   }
 
@@ -74,6 +82,24 @@ export class ChamadosComponent implements OnInit {
   openDetailsDialog(chamado: Chamado): void {
     this.dialog.open(ChamadoDetailsComponent, { data: chamado, width: "400px" });
   }
+
+  openClienteInfoDialog(cliente: number): void {
+    let infoCliente;
+    this.serviceCliente.findById(cliente).subscribe((cliente) => {
+      infoCliente = cliente;
+      this.dialog.open(ChamadoClientsComponent, { data: infoCliente, width: "400px" });
+    });
+}
+
+  openTecnicoInfoDialog(tecnico: number): void {
+    let infoTecnico;
+    this.serviceTecnico.findById(tecnico).subscribe((tecnico) => {
+      infoTecnico = tecnico;
+      this.dialog.open(ChamadoTecnicosComponent, { data: infoTecnico, width: "400px" });
+    })
+  }
+
+
 
   convertInIcon(status: number): string {
     if (status == 0) {
