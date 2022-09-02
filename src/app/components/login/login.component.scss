@@ -55,3 +55,31 @@ mat-toolbar {
     vertical-align: middle;
   }
 }
+
+@media screen and (max-width: 750px) {
+
+
+  .banner {
+    display: none;
+  }
+
+  .login {
+    flex-wrap: wrap;
+    width: 100vw;
+    padding-right: 0px;
+
+    form {
+      .tamanho {
+        width: clamp(200px, 100%, 300px);
+      }
+      img {
+        height: 100px;
+        width: clamp(150px, 100%, 200px);
+        margin: 0 auto;
+      }
+      margin: 0 auto 180px auto;
+      height: 430px;
+      width: clamp(300px, 100%, 350px);
+    }
+  }
+}
