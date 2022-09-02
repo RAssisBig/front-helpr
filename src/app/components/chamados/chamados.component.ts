@@ -84,4 +84,16 @@ export class ChamadosComponent implements OnInit {
       return "task";
     }
   }
+  convertInImg(prioridade: number): string {
+    if(prioridade == 0){
+      return "signal_cellular_alt_1_bar";
+    }
+    else if(prioridade == 1){
+      return "signal_cellular_alt_2_bar";
+    }
+    else(prioridade == 2)
+    {
+      return "signal_cellular_alt_3_bar";
+    }
+  }
 }
