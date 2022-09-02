@@ -12,60 +12,62 @@
             <input matInput (keyup)="applyFilter($event)" #input>
         </mat-form-field>
 
-        <mat-progress-bar *ngIf="!progressBarCliente" mode="indeterminate"></mat-progress-bar>
-        <div class="mat-elevation-z8" *ngIf="progressBarCliente">
-            <table mat-table [dataSource]="dataSource">
-
-                <ng-container matColumnDef="id">
-                    <th mat-header-cell *matHeaderCellDef> Id </th>
-                    <td mat-cell *matCellDef="let cliente"> {{cliente.id}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="nome">
-                    <th mat-header-cell *matHeaderCellDef> Nome </th>
-                    <td mat-cell *matCellDef="let cliente"> {{cliente.nome}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="cpf">
-                    <th mat-header-cell *matHeaderCellDef> CPF </th>
-                    <td mat-cell *matCellDef="let cliente"> {{cliente.cpf}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="email">
-                    <th mat-header-cell *matHeaderCellDef> E-mail </th>
-                    <td mat-cell *matCellDef="let cliente"> {{cliente.email}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="dataCriacao">
-                    <th mat-header-cell *matHeaderCellDef> Data de criação </th>
-                    <td mat-cell *matCellDef="let cliente"> {{cliente.dataCriacao}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="update">
-                    <th mat-header-cell *matHeaderCellDef> Alterar </th>
-                    <td mat-cell *matCellDef="let cliente">
-                        <a mat-icon-button [routerLink]="['edit', cliente.id]" matTooltip="Alterar cliente">
-                            <mat-icon>edit</mat-icon>
-                        </a>
-                    </td>
-                </ng-container>
-
-                <ng-container matColumnDef="delete">
-                    <th mat-header-cell *matHeaderCellDef> Apagar </th>
-                    <td mat-cell *matCellDef="let cliente">
-                        <button mat-icon-button (click)="delete(cliente.id)" matTooltip="Apagar cliente" color="warn">
-                            <mat-icon>delete</mat-icon>
-                        </button>
-                    </td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
-            </mat-paginator>
+        <div *ngIf="!progressBarCliente">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
         </div>
+
+        <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let cliente"> {{cliente.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nome">
+                <th mat-header-cell *matHeaderCellDef> Nome </th>
+                <td mat-cell *matCellDef="let cliente"> {{cliente.nome}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cpf">
+                <th mat-header-cell *matHeaderCellDef> CPF </th>
+                <td mat-cell *matCellDef="let cliente"> {{cliente.cpf}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="email">
+                <th mat-header-cell *matHeaderCellDef> E-mail </th>
+                <td mat-cell *matCellDef="let cliente"> {{cliente.email}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dataCriacao">
+                <th mat-header-cell *matHeaderCellDef> Data de criação </th>
+                <td mat-cell *matCellDef="let cliente"> {{cliente.dataCriacao}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="update">
+                <th mat-header-cell *matHeaderCellDef> Alterar </th>
+                <td mat-cell *matCellDef="let cliente">
+                    <a mat-icon-button [routerLink]="['edit', cliente.id]" matTooltip="Alterar cliente">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef> Apagar </th>
+                <td mat-cell *matCellDef="let cliente">
+                    <button mat-icon-button (click)="delete(cliente.id)" matTooltip="Apagar cliente" color="warn">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+        </mat-paginator>
     </ng-container>
-    <img src="https://user-images.githubusercontent.com/31005408/176497181-2f1cab22-024c-459c-b1ea-2f90d19d373c.png" width="100%" height="350px" style="margin-top: 25px" alt="bannerClientes">
+    <img src="https://user-images.githubusercontent.com/31005408/176497181-2f1cab22-024c-459c-b1ea-2f90d19d373c.png"
+        width="100%" height="350px" style="margin-top: 25px" alt="bannerClientes">
 </nav-bar>
