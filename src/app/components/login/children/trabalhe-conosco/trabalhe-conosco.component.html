@@ -1,0 +1,24 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>TRABALHE CONOSCO</mat-card-title>
+        <mat-card-subtitle>Seja um técnico HELPR</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/logoHorizontal/1.png"
+        alt="helpr logo">
+    <mat-card-content>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus cumque dolorem tempore similique possimus
+            fugit. Corrupti culpa ex saepe quis sed ipsum ratione exercitationem nobis, eveniet eaque distinctio a
+            maiores.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum harum est esse vero dolorem tempora ipsa
+            officia? Nihil architecto saepe illo cupiditate, cum quia, ipsa blanditiis similique ratione sapiente sequi.
+        </p>
+    </mat-card-content>
+</mat-card>
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Fechar</button>
+    <button mat-raised-button [mat-dialog-close]="true" color="accent" (click)="openDialog()">CADASTRE-SE</button>
+</mat-dialog-actions>

@@ -1,3 +1,13 @@
+<mat-toolbar>
+    <img id="logoNavbar" src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/logoQuadrado/1.png"
+        alt="">
+    <div class="buttons">
+        <button mat-button matTooltip="Trabalhe conosco" (click)="openDialog('500ms', '333ms')">
+            <mat-icon color="primary">badge</mat-icon>
+        </button>
+    </div>
+</mat-toolbar>
+
 <div class="login">
     <img src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/outsiteBanner/1.png" class="full-width">
     <form class="mat-elevation-z8" [formGroup]="formLogin" (ngSubmit)="logar()">
