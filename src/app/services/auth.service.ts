@@ -49,13 +49,22 @@ export class AuthService {
     } catch (error){
       return null;
     }
-  } 
+  }
 
   isAuthenticated(): boolean {
     let flag: boolean = false;
     let token: string | null = this.getToken();
-    if(token != null) {
+    if (token != null) {
+      let tokenTime: any = this.jwt.getTokenExpirationDate(token);
       flag = !this.jwt.isTokenExpired(token);
+      let timerMilissegundos = (tokenTime - Date.now());
+      let timerHoras = Math.round(timerMilissegundos / (1000 * 60 * 60))
+      if (timerHoras !== 0) {
+        console.log(`A sessão expirará em ${timerHoras} horas...`);
+      }
+      else {
+        console.log("Sessão expirada!")
+      }
     }
     return flag;
   }
