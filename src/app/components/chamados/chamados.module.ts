@@ -10,6 +10,8 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 import { ChamadoCreateComponent } from './children/chamado-create/chamado-create.component';
 import { ChamadoUpdateComponent } from './children/chamado-update/chamado-update.component';
 import { ChamadoDetailsComponent } from './children/chamado-details/chamado-details.component';
+import { ChamadoClientsComponent } from './children/chamado-clients/chamado-clients.component';
+import { ChamadoTecnicosComponent } from './children/chamado-tecnicos/chamado-tecnicos.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ChamadoDetailsComponent } from './children/chamado-details/chamado-deta
     ChamadosComponent,
     ChamadoCreateComponent,
     ChamadoUpdateComponent,
-    ChamadoDetailsComponent
+    ChamadoDetailsComponent,
+    ChamadoClientsComponent,
+    ChamadoTecnicosComponent
   ],
   imports: [
     CommonModule,

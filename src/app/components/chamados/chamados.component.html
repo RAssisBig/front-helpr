@@ -47,12 +47,16 @@
 
                 <ng-container matColumnDef="cliente">
                     <th mat-header-cell *matHeaderCellDef> Cliente </th>
-                    <td mat-cell *matCellDef="let chamado"> {{chamado.nomeCliente}} </td>
+                    <td mat-cell *matCellDef="let chamado">
+                        <button mat-button (click)="openClienteInfoDialog(chamado.cliente)">{{chamado.nomeCliente}}</button>
+                    </td>
                 </ng-container>
 
                 <ng-container matColumnDef="tecnico">
                     <th mat-header-cell *matHeaderCellDef> Técnico </th>
-                    <td mat-cell *matCellDef="let chamado"> {{chamado.nomeTecnico}} </td>
+                    <td mat-cell *matCellDef="let chamado">
+                        <button mat-button (click)="openTecnicoInfoDialog(chamado.tecnico)">{{chamado.nomeTecnico}}</button>
+                    </td>
                 </ng-container>
 
                 <ng-container matColumnDef="dataAbertura">
