@@ -1,50 +1,52 @@
 <nav-bar>
-    <ng-container>
+  <ng-container>
+    <div class="container">
+      <form [formGroup]="formChamado" (ngSubmit)="create()" class="mat-elevation-z8 formulario">
         <h2>Adicionar Chamado</h2>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Título</mat-label>
+          <input type="text" matInput formControlName="titulo">
+        </mat-form-field>
 
-        <form [formGroup]="formChamado" (ngSubmit)="create()">
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Título</mat-label>
-                <input type="text" matInput formControlName="titulo">
-            </mat-form-field>
+        <div class="status-prioridade">
+          <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="status">
+              <mat-option *ngFor="let status of statusList" [value]="status.value">{{ status.title }}</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-            <div class="status-prioridade">
-                <mat-form-field appearance="fill">
-                    <mat-label>Status</mat-label>
-                    <mat-select formControlName="status">
-                        <mat-option *ngFor="let status of statusList" [value]="status.value">{{ status.title }}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-    
-                <mat-form-field appearance="fill">
-                    <mat-label>Prioridade</mat-label>
-                    <mat-select formControlName="prioridade">
-                        <mat-option *ngFor="let prioridade of prioridadeList" [value]="prioridade.value">{{ prioridade.title }}</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
+          <mat-form-field appearance="fill">
+            <mat-label>Prioridade</mat-label>
+            <mat-select formControlName="prioridade">
+              <mat-option *ngFor="let prioridade of prioridadeList" [value]="prioridade.value">{{ prioridade.title }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Cliente</mat-label>
-                <mat-select formControlName="cliente">
-                    <mat-option *ngFor="let cliente of clienteList" [value]="cliente.id">{{ cliente.nome }}</mat-option>
-                </mat-select>
-            </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Cliente</mat-label>
+          <mat-select formControlName="cliente">
+            <mat-option *ngFor="let cliente of clienteList" [value]="cliente.id">{{ cliente.nome }}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Técnico</mat-label>
-                <mat-select formControlName="tecnico">
-                    <mat-option *ngFor="let tecnico of tecnicoList" [value]="tecnico.id">{{ tecnico.nome }}</mat-option>
-                </mat-select>
-            </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Técnico</mat-label>
+          <mat-select formControlName="tecnico">
+            <mat-option *ngFor="let tecnico of tecnicoList" [value]="tecnico.id">{{ tecnico.nome }}</mat-option>
+          </mat-select>
+        </mat-form-field>
 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Observações</mat-label>
-                <textarea matInput class="description" formControlName="observacoes"></textarea>
-            </mat-form-field>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Observações</mat-label>
+          <textarea matInput class="description" formControlName="observacoes"></textarea>
+        </mat-form-field>
 
-            <button mat-raised-button color="primary" matTooltip="Adicionar chamado">Adicionar</button>
-            <a mat-raised-button color="warn" routerLink="/chamados" matTooltip="Cancelar adição">Cancelar</a>
-        </form>
-    </ng-container>
+        <button mat-raised-button color="primary">Adicionar</button>
+        <a mat-raised-button color="warn" routerLink="/chamados">Cancelar</a>
+      </form>
+    </div>
+  </ng-container>
 </nav-bar>

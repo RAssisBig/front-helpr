@@ -1,20 +1,42 @@
-.status-prioridade {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    mat-form-field {
-        width: 48%;
-    }
+.section {
+  margin-bottom: 20px;
+}
+
+.margin {
+  margin-right: 15px;
+}
+
+.status-prioridade {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  mat-form-field {
+    width: 48%;
+  }
+}
+
+.formulario {
+  width: 350px;
+  height: 80vh;
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 25px;
 }
 
 .description {
-    min-height: 30px;
-    max-height: 80px;
+  min-height: 30px;
+  max-height: 80px;
 }
 
 form a,
 form button {
-    margin-left: 20px;
-    float: right;
+  margin-left: 20px;
+  float: right;
 }
