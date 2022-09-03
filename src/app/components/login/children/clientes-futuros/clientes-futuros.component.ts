@@ -18,6 +18,8 @@ export class ClientesFuturosComponent implements OnInit {
     email: ['', [Validators.required, Validators.email]]
   });
 
+  isLinear = false;
+
   ngOnInit(): void {
   }
 
