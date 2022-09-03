@@ -1,33 +1,55 @@
 table {
-    width: 100%;
+  width: 100%;
 }
 
-.status{
-    width: 22px;
-    margin-bottom: -4px;
+table th {
+  font-weight: bolder;
+  color: #5e35b1;
+  font-size: medium;
+}
+
+table td {
+  font-weight: bold;
+}
+
+.id {
+  font-weight: bold;
+  font-size: large;
+}
+
+.status {
+  width: 22px;
+  margin-bottom: -4px;
 }
 
 .container-title {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
 
-    h2 {
-        margin: 0;
-    }
+  h2 {
+    margin: 0;
+    font-size: large;
+    font-weight: bold;
+  }
 }
 
 .section {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 
-    .margin {
-        margin-right: 20px;
-    }
+  .margin {
+    margin-right: 20px;
+  }
 }
 
-.prioridade{
+img {
+  padding-top: 40px;
+  padding-left: 40px;
+}
+
+.prioridade {
   width: 22px;
   margin-bottom: -4px;
- }
+}
