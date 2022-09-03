@@ -16,6 +16,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
   exports: [
@@ -35,7 +36,8 @@ import { MatCardModule } from '@angular/material/card';
     MatSnackBarModule,
     MatSlideToggleModule,
     MatProgressBarModule,
-    MatCardModule
+    MatCardModule,
+    MatStepperModule
   ]
 })
 export class MaterialModule { }
