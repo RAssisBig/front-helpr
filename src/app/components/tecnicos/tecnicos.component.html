@@ -17,7 +17,7 @@
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
       </div>
 
-      <div class="mat-elevation-z8">
+      <section class="overflow-container mat-elevation-z8" tabindex="0">
         <table mat-table [dataSource]="dataSource">
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -67,11 +67,14 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
         </table>
+      </section>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
-        </mat-paginator>
-      </div>
-      <img src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/logoHorizontal/1.png" />
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+      </mat-paginator>
+      <img
+        class="imgDown"
+        src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/logoHorizontal/1.png"
+      />
     </div>
   </ng-container>
 </nav-bar>

@@ -1,5 +1,5 @@
 table {
-    width: 100%; 
+    width: 100%;
 }
 
 table th {
@@ -30,4 +30,15 @@ table td {
         font-size: large;
         font-weight: bolder;
     }
+}
+
+
+.overflow-container {
+  overflow: auto;
+}
+
+.imgDown {
+  width: 100%;
+  height: auto;
+  margin-top: 25px;
 }

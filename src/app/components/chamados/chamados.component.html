@@ -2,86 +2,124 @@
   <ng-container>
     <div class="container-title">
       <h2>Lista de Chamados</h2>
-      <a mat-fab color="primary" routerLink="new" matTooltip="Criar novo chamado">
+      <a
+        mat-fab
+        color="primary"
+        routerLink="new"
+        matTooltip="Criar novo chamado"
+      >
         <mat-icon>add</mat-icon>
       </a>
     </div>
 
     <mat-form-field appearance="standard" class="full-width">
       <mat-label>Filtro</mat-label>
-      <input matInput (keyup)="applyFilter($event)" #input>
+      <input matInput (keyup)="applyFilter($event)" #input />
     </mat-form-field>
-    <mat-progress-bar *ngIf="!progressBarChamados" mode="indeterminate"></mat-progress-bar>
+    <mat-progress-bar
+      *ngIf="!progressBarChamados"
+      mode="indeterminate"
+    ></mat-progress-bar>
     <section class="section" *ngIf="progressBarChamados">
       <mat-radio-group>
-        <mat-radio-button color="primary" class="margin" value="0" (click)="filterByStatus(0)" #check1>
+        <mat-radio-button
+          color="primary"
+          class="margin"
+          value="0"
+          (click)="filterByStatus(0)"
+          #check1
+        >
           <mat-icon class="status">note_add</mat-icon>
           Aberto
         </mat-radio-button>
-        <mat-radio-button color="primary" class="margin" value="1" (click)="filterByStatus(1)" #check2>
+        <mat-radio-button
+          color="primary"
+          class="margin"
+          value="1"
+          (click)="filterByStatus(1)"
+          #check2
+        >
           <mat-icon class="status">pending_actions</mat-icon>
           Andamento
         </mat-radio-button>
-        <mat-radio-button color="primary" class="margin" value="2" (click)="filterByStatus(2)" #check3>
+        <mat-radio-button
+          color="primary"
+          class="margin"
+          value="2"
+          (click)="filterByStatus(2)"
+          #check3
+        >
           <mat-icon class="status">task</mat-icon>
           Encerrado
         </mat-radio-button>
       </mat-radio-group>
 
-      <button mat-icon-button (click)="clearFilter(input, check1, check2, check3)" matTooltip="Limpar filtro">
+      <button
+        mat-icon-button
+        (click)="clearFilter(input, check1, check2, check3)"
+        matTooltip="Limpar filtro"
+      >
         <mat-icon>filter_alt_off</mat-icon>
       </button>
     </section>
 
-    <div class="mat-elevation-z8">
+    <section class="overflow-container mat-elevation-z8" tabindex="0">
       <table mat-table [dataSource]="dataSource">
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef> Id </th>
-          <td mat-cell *matCellDef="let chamado"> {{chamado.id}} </td>
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let chamado">{{ chamado.id }}</td>
         </ng-container>
 
         <ng-container matColumnDef="titulo">
-          <th mat-header-cell *matHeaderCellDef> Título </th>
-          <td mat-cell *matCellDef="let chamado"> {{chamado.titulo}} </td>
+          <th mat-header-cell *matHeaderCellDef>Título</th>
+          <td mat-cell *matCellDef="let chamado">{{ chamado.titulo }}</td>
         </ng-container>
 
         <ng-container matColumnDef="cliente">
-          <th mat-header-cell *matHeaderCellDef> Cliente </th>
+          <th mat-header-cell *matHeaderCellDef>Cliente</th>
           <td mat-cell *matCellDef="let chamado">
-            <button mat-button (click)="openClienteInfoDialog(chamado.cliente)">{{chamado.nomeCliente}}</button>
+            <button mat-button (click)="openClienteInfoDialog(chamado.cliente)">
+              {{ chamado.nomeCliente }}
+            </button>
           </td>
         </ng-container>
 
         <ng-container matColumnDef="tecnico">
-          <th mat-header-cell *matHeaderCellDef> Técnico </th>
+          <th mat-header-cell *matHeaderCellDef>Técnico</th>
           <td mat-cell *matCellDef="let chamado">
-            <button mat-button (click)="openTecnicoInfoDialog(chamado.tecnico)">{{chamado.nomeTecnico}}</button>
+            <button mat-button (click)="openTecnicoInfoDialog(chamado.tecnico)">
+              {{ chamado.nomeTecnico }}
+            </button>
           </td>
         </ng-container>
 
         <ng-container matColumnDef="dataAbertura">
-          <th mat-header-cell *matHeaderCellDef> Data de abertura </th>
-          <td mat-cell *matCellDef="let chamado"> {{chamado.dataAbertura}} </td>
+          <th mat-header-cell *matHeaderCellDef>Data de abertura</th>
+          <td mat-cell *matCellDef="let chamado">{{ chamado.dataAbertura }}</td>
         </ng-container>
 
         <ng-container matColumnDef="prioridade">
-          <th mat-header-cell *matHeaderCellDef> Prioridade </th>
+          <th mat-header-cell *matHeaderCellDef>Prioridade</th>
           <td mat-cell *matCellDef="let chamado">
-            <mat-icon class="prioridade">{{convertInImg(chamado.prioridade)}}</mat-icon>
-            {{chamado.prioridade | prioridade}}
+            <mat-icon class="prioridade">{{
+              convertInImg(chamado.prioridade)
+            }}</mat-icon>
+            {{ chamado.prioridade | prioridade }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <th mat-header-cell *matHeaderCellDef>Status</th>
           <td mat-cell *matCellDef="let chamado">
-            <mat-icon class="status">{{convertInIcon(chamado.status)}}</mat-icon>
-            {{chamado.status | status}}
+            <mat-icon class="status">{{
+              convertInIcon(chamado.status)
+            }}</mat-icon>
+            {{ chamado.status | status }}
           </td>
         </ng-container>
 
         <ng-container matColumnDef="update">
-          <th mat-header-cell *matHeaderCellDef> Alterar </th>
+          <th mat-header-cell *matHeaderCellDef>Alterar</th>
           <td mat-cell *matCellDef="let chamado">
             <a mat-icon-button [routerLink]="['edit', chamado.id]">
               <mat-icon matTooltip="Alterar chamado">edit</mat-icon>
@@ -90,23 +128,33 @@
         </ng-container>
 
         <ng-container matColumnDef="details">
-          <th mat-header-cell *matHeaderCellDef> Detalhes </th>
+          <th mat-header-cell *matHeaderCellDef>Detalhes</th>
           <td mat-cell *matCellDef="let chamado">
-            <button mat-icon-button (click)="openDetailsDialog(chamado)" matTooltip="Exapandir detalhes">
+            <button
+              mat-icon-button
+              (click)="openDetailsDialog(chamado)"
+              matTooltip="Exapandir detalhes"
+            >
               <mat-icon>visibility</mat-icon>
             </button>
           </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
+    </section>
 
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic chamados">
-      </mat-paginator>
-    </div>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20]"
+      showFirstLastButtons
+      aria-label="Select page of periodic chamados"
+    >
+    </mat-paginator>
 
-    <img src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/logoTexto/1.png" class="full-width">
-
+    <img
+      class="imgDown"
+      src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/logoTexto/1.png"
+    />
   </ng-container>
 </nav-bar>

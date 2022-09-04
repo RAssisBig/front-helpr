@@ -23,12 +23,7 @@ table td{
 
 }
 
-img{
-  padding-top: 20px;
-
-}
-
-****tecnicos create componente scss
+// ****tecnicos create componente scss
 
 form a,
 form button {
@@ -56,4 +51,14 @@ form button {
   height: 75vh;
   border-radius: 15px;
   padding: 25px;
+}
+
+.overflow-container {
+  overflow: auto;
+}
+
+.imgDown {
+  width: 100%;
+  height: auto;
+  margin-top: 25px;
 }
