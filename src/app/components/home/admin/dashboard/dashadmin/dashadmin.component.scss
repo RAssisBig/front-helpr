@@ -1,0 +1,23 @@
+.grid-container {
+  width: 100%;
+  overflow: visible;
+  align-content: center;
+
+}
+
+mat-grid-list{
+  width: 98%;
+}
+
+mat-grid-tile{
+  width: 100%;
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.761);
+  border: solid rgba(0, 0, 0, 0.54) 1px;
+  border-radius: 5px;
+}
+
+.mat-h1{
+  margin-top: 25px;
+  margin-bottom: 25px;
+  text-align: center;
+}

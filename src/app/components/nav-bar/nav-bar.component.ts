@@ -42,7 +42,8 @@ const itemsMenu: any = [
 export class NavBarComponent implements OnInit {
   mode: string = 'light_mode';
   isChecked: boolean = false;
-  changed(event: MatSlideToggleChange): void {
+
+    changed(event: MatSlideToggleChange): void {
     this.mode = event.checked ? 'light_mode' : 'dark_mode';
     document.body.classList.toggle('darkMode');
   }
@@ -52,7 +53,7 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {}
 
   public menuList: any = itemsMenu;
-  
+
   applyFilter(value: string): void {
     if(value.length === 0){
       this.menuList = itemsMenu;
