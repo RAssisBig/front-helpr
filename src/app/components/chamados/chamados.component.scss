@@ -40,16 +40,21 @@ table td {
   margin-bottom: 20px;
 
   .margin {
-    margin-right: 20px;
+    margin-right: 10px;
   }
-}
-
-img {
-  padding-top: 40px;
-  padding-left: 40px;
 }
 
 .prioridade {
   width: 22px;
   margin-bottom: -4px;
+}
+
+.overflow-container {
+  overflow: auto;
+}
+
+.imgDown {
+  width: 100%;
+  height: auto;
+  margin-top: 25px;
 }
