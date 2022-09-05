@@ -40,9 +40,8 @@ const itemsMenu: any = [
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
-  mode: string = 'lightmode';
+  mode: string = 'light_mode';
   isChecked: boolean = false;
-  title2 = 'dark-mode';
   changed(event: MatSlideToggleChange): void {
     this.mode = event.checked ? 'light_mode' : 'dark_mode';
     document.body.classList.toggle('darkMode');

@@ -23,5 +23,6 @@ export class ExitComponent implements OnInit {
     this.router.navigate(['/login']);
     this.auth.logout();
     this.toastr.info("Logout realizado com sucesso.", "Logout");
+    window.location.reload();
   }
 }
