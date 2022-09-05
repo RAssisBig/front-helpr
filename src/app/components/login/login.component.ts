@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ClientesFuturosComponent } from './children/clientes-futuros/clientes-futuros.component';
 import { Tecnico } from 'src/app/models/tecnico';
 import { TrabalheConoscoComponent } from './children/trabalhe-conosco/trabalhe-conosco.component';
+import { PromocoesComponent } from './children/promocoes/promocoes.component';
 
 @Component({
   selector: 'app-login',
@@ -37,7 +38,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.abrirSnackCookies()
+    this.abrirSnackCookies();
+    this.openPromocoesDialog();
   }
 
   public logar(): void {
@@ -100,5 +102,8 @@ export class LoginComponent implements OnInit {
       enterAnimationDuration,
       exitAnimationDuration
     });
+  }
+  openPromocoesDialog(): void {
+    this.dialog.open(PromocoesComponent);
   }
 }

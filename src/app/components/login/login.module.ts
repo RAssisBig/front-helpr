@@ -9,13 +9,15 @@ import { ClientesFuturosComponent } from './children/clientes-futuros/clientes-f
 import { TrabalheConoscoComponent } from './children/trabalhe-conosco/trabalhe-conosco.component';
 import { TrabalheConoscoFormComponent } from './children/trabalhe-conosco-form/trabalhe-conosco-form.component';
 import { MatCardModule } from '@angular/material/card';
+import { PromocoesComponent } from './children/promocoes/promocoes.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     ClientesFuturosComponent,
     TrabalheConoscoComponent,
-    TrabalheConoscoFormComponent
+    TrabalheConoscoFormComponent,
+    PromocoesComponent
   ],
   imports: [
     CommonModule,
