@@ -1,6 +1,37 @@
+@use '@angular/material' as mat;
+@import '~@angular/material/theming';
+
 img {
   width: 80%;
 }
+
+$mat-primary-scheme:(
+  100: #c5cae9,
+  500: #61699a,
+  700: #303f9f,
+  contrast: (
+    100: rgba(0,0,0,0.87),
+    500: #ffffff,
+    700: #ffffff,
+  )
+);
+
+$mat-accent-scheme: (
+  100: #ff80ab,
+  500: #ff4081,
+  700: #f50057,
+  contrast: (
+    100: rgba(0,0,0,0.87),
+    500: rgba(0,0,0,0.87),
+    700:#ffffff,
+  )
+);
+$mat-primary-palette: mat-palette($mat-primary-scheme);
+$mat-accent-palette: mat-palette($mat-accent-scheme);
+
+$app-light-theme: mat-light-theme($mat-primary-scheme, $mat-accent-scheme);
+
+@include angular-material-theme($app-light-theme);
 
 .login {
   padding-right: 20px;
@@ -17,6 +48,11 @@ img {
     padding: 20px;
     border-radius: 10px;
     background-color: #F5F5F5;
+    color: black;
+
+    p {
+      text-align: center;
+    }
 
     .tamanho {
       width: 300px;
@@ -25,6 +61,7 @@ img {
     button {
       margin-top: 15px;
       margin-bottom: 15px;
+      background: rgb(100, 28, 211);
     }
 
     span {

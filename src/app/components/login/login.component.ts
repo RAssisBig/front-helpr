@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.abrirSnackCookies();
     this.openPromocoesDialog();
+    this.lightTheme();
   }
 
   public logar(): void {
@@ -105,5 +106,9 @@ export class LoginComponent implements OnInit {
   }
   openPromocoesDialog(): void {
     this.dialog.open(PromocoesComponent);
+  }
+
+  lightTheme() {
+    document.body.classList.toggle('darkMode');
   }
 }
