@@ -1,6 +1,8 @@
 <div class="grid-container">
-  
-
+  <div class="buttons">
+    <button (click)="openDialogAbertos()" mat-raised-button color="primary" [matBadge]="contarChamadosEmAberto()" matBadgeColor="warn" matBadgeOverlap="false">Chamados em Aberto</button>
+    <button (click)="openDialogUrgentes()" mat-raised-button color="primary" [matBadge]="contarChamadosUrgentes()" matBadgeColor="warn" matBadgeOverlap="false">Chamados Urgentes</button>
+  </div>
   <mat-grid-list cols="4" rowHeight="350px" gutterSize=" 15px">
   <mat-grid-tile class="block" colspan="2" rowspan="1">
     Chamados
