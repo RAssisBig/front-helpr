@@ -9,13 +9,16 @@ import { TecnicoCreateComponent } from './children/tecnico-create/tecnico-create
 import { FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { TecnicoUpdateComponent } from './children/tecnico-update/tecnico-update.component';
+import { TecnicoChamadosComponent } from './children/tecnico-chamados/tecnico-chamados.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 @NgModule({
   declarations: [
     TecnicosComponent,
     TecnicoCreateComponent,
-    TecnicoUpdateComponent
+    TecnicoUpdateComponent,
+    TecnicoChamadosComponent
   ],
   imports: [
     CommonModule,
@@ -23,12 +26,14 @@ import { TecnicoUpdateComponent } from './children/tecnico-update/tecnico-update
     MaterialModule,
     NavBarModule,
     FormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    PipesModule
   ],
   exports: [
     TecnicosComponent,
     TecnicoCreateComponent,
-    TecnicoUpdateComponent
+    TecnicoUpdateComponent,
+    TecnicoChamadosComponent
   ]
 })
 export class TecnicosModule { }
