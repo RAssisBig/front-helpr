@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SwPush } from '@angular/service-worker';
+import { AuthService } from 'src/app/services/auth.service';
 import { TecnicoService } from 'src/app/services/tecnico.service';
 
 @Component({
@@ -11,14 +13,20 @@ import { TecnicoService } from 'src/app/services/tecnico.service';
 export class HomeComponent implements OnInit {
   public lat!: number;
   public lon!: number;
+  private router: Router;
+  private service: AuthService;
 
   constructor(
-    private http: HttpClient, private swPush: SwPush
-    ) {}
+    private http: HttpClient, private swPush: SwPush, router: Router, service: AuthService
+    ) {
+      this.router = router
+      this.service = service
+    }
 
   ngOnInit() {
     this.getUserLocation();
     this.getPushNotifications();
+    this.routingHome();
   }
 
   getPushNotifications() {
@@ -47,6 +55,18 @@ export class HomeComponent implements OnInit {
       });
     } else {
       console.log('Usuário não permitiu compartilhar sua localização!');
+    }
+  }
+
+  routingHome():void{
+    if(this.service.isAdmin()){
+      this.router.navigate(['/admin/dashboard'])
+    }
+    if(this.service.isCliente()){
+      this.router.navigate(['/cliente/dashboard'])
+    }
+    if(this.service.isTecnico()){
+      this.router.navigate(['/tecnico/dashboard'])
     }
   }
 }
