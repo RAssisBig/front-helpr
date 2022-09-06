@@ -19,7 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatStepperModule } from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   exports: [
     MatToolbarModule,
@@ -41,7 +41,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatCardModule,
     MatStepperModule,
     MatTabsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatMenuModule
   ]
 })
 export class MaterialModule { }
