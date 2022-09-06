@@ -6,6 +6,7 @@ import { ClientesModule } from 'src/app/components/clientes/clientes.module';
 import { LoginModule } from 'src/app/components/login/login.module';
 import { TecnicosModule } from 'src/app/components/tecnicos/tecnicos.module';
 import { HomeModule } from 'src/app/components/home/home.module';
+import { FaqModule } from 'src/app/faq/faq.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HomeModule } from 'src/app/components/home/home.module';
     TecnicosModule,
     ClientesModule,
     ChamadosModule,
-    PerfilModule
+    PerfilModule,
+    FaqModule
   ]
 })
 export class PagesModule { }
