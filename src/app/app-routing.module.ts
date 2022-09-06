@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { ExitComponent } from './utils/exit/exit.component';
+import { FaqComponent } from './faq/faq.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,11 @@ const routes: Routes = [
   {
     path: "logout",
     component: ExitComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "faq",
+    component: FaqComponent,
     canActivate: [AuthGuard]
   }
 ];
