@@ -1,0 +1,36 @@
+table {
+    width: 100%;
+}
+
+table th {
+    font-weight: bolder;
+    color: #5e35b1;
+    font-size: medium;
+}
+
+table td {
+    width: 80px;
+    margin: 10px;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+container-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+        margin: 0;
+        font-size: large;
+        font-weight: bolder;
+    }
+}
+
+img {
+    margin-top: 20px;
+}
