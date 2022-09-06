@@ -1,3 +1,71 @@
 <nav-bar>
-    <ng-container>cliente dashboard ficara aqui</ng-container>
+    <ng-container>
+        <div class="container-title">
+            <h2>Lista dos seus Chamados</h2>
+        </div>
+
+        <mat-form-field appearance="standard" class="full-width">
+            <mat-label>Filtro</mat-label>
+            <input matInput (keyup)="applyFilter($event)" #input>
+        </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let chamadosCliente"> {{chamadosCliente.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="titulo">
+                <th mat-header-cell *matHeaderCellDef> Título </th>
+                <td mat-cell *matCellDef="let chamadosCliente"> {{chamadosCliente.titulo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nomeCliente">
+                <th mat-header-cell *matHeaderCellDef> Cliente </th>
+                <td mat-cell *matCellDef="let chamadosCliente"> {{chamadosCliente.nomeCliente}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nomeTecnico">
+                <th mat-header-cell *matHeaderCellDef> Tecnico </th>
+                <td mat-cell *matCellDef="let chamadosCliente"> {{chamadosCliente.nomeTecnico}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dataAbertura">
+                <th class="txt-center" mat-header-cell *matHeaderCellDef> Data de abertura </th>
+                <td class="txt-center" mat-cell *matCellDef="let chamadosCliente"> {{chamadosCliente.dataAbertura}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dataFechamento">
+                <th class="txt-center" mat-header-cell *matHeaderCellDef> Data de fechamento </th>
+                <td class="txt-center" mat-cell *matCellDef="let chamadosCliente"> {{chamadosCliente.dataFechamento}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="prioridade">
+                <th class="txt-center" mat-header-cell *matHeaderCellDef> Prioridade </th>
+                <td class="txt-center" mat-cell *matCellDef="let chamadosCliente"> {{chamadosCliente.prioridade}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="status">
+                <th class="txt-center" mat-header-cell *matHeaderCellDef> Status </th>
+                <td class="txt-center" mat-cell *matCellDef="let chamadosCliente"> {{chamadosCliente.status}} </td>
+            </ng-container>
+
+            <ng-container class="observacoes" matColumnDef="observacoes">
+                <th mat-header-cell *matHeaderCellDef> Observações </th>
+                <td mat-cell *matCellDef="let chamadosCliente"> {{chamadosCliente.observacoes}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+        </mat-paginator>
+
+        <img src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/insideBanner/2.png"
+            class="full-width img" alt="bannerChamados">
+    </ng-container>
 </nav-bar>

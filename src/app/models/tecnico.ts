@@ -1,5 +1,5 @@
 export interface Tecnico {
-    id?: number;
+    id?: number | string;
     nome: string;
     cpf: string;
     email: string;
