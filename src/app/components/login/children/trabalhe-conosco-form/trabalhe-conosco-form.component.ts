@@ -10,6 +10,8 @@ import { TecnicosFuturos } from 'src/app/models/tecnicos-futuros';
 export class TrabalheConoscoFormComponent implements OnInit {
   public formCadastro: FormGroup;
   public formBuilder: FormBuilder;
+
+  isLinear = true;
   constructor(formBuilder: FormBuilder) {
     this.formBuilder = formBuilder
     this.formCadastro = formBuilder.group({

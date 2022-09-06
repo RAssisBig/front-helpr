@@ -1,28 +1,54 @@
-<form [formGroup]="formCadastro"  (ngSubmit)="send()">
-    <mat-form-field>
-        <input matInput placeholder="Nome Completo" formControlName="nome" required>
-    </mat-form-field>
+<form [formGroup]="formCadastro" (ngSubmit)="send()">
+    <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+        <mat-step>
+            <ng-template matStepLabel>Preencha seu nome</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Nome</mat-label>
+                <input matInput placeholder="Nome Completo" formControlName="nome" required>
+            </mat-form-field>
+        </mat-step>
 
-    <mat-form-field>
-        <input matInput placeholder="formacao" formControlName="formacao" required>
-    </mat-form-field>
+        <mat-step>
+            <ng-template matStepLabel>Indique sua formação</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Formação</mat-label>
+                <input matInput placeholder="formacao" formControlName="formacao" required>
+            </mat-form-field>
+        </mat-step>
 
-    <mat-form-field>
-        <mat-label>Telefone</mat-label>
-        <span matPrefix>+55 &nbsp;</span>
-        <input type="tel" matInput placeholder="apenas numeros" formControlName="telefone"  required>
-    </mat-form-field>
+        <mat-step>
 
-    <mat-form-field>
-        <input matInput placeholder="experiencia" formControlName="experiencia" required>
-    </mat-form-field>
+            <ng-template matStepLabel>Informe seu telefone</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Telefone</mat-label>
+                <span matPrefix>+55 &nbsp;</span>
+                <input type="tel" matInput placeholder="apenas numeros" formControlName="telefone" required>
+            </mat-form-field>
+        </mat-step>
 
-    <mat-form-field>
-        <input matInput type="url" placeholder="LinkedIn" formControlName="linkedin" required>
-    </mat-form-field>
+        <mat-step>
+            <ng-template matStepLabel>Conte-nos sua última experiência</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Experiência</mat-label>
+                <input matInput placeholder="experiencia" formControlName="experiencia" required>
+            </mat-form-field>
 
-    <div class="buttons">
-        <button mat-button mat-dialog-close>Fechar</button>
-        <button type="submit" mat-raised-button [mat-dialog-close]="true" color="primary">ENVIAR</button>
-    </div>
-    </form>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>Mostre-nos seu LinkedIn</ng-template>
+            <mat-form-field appearance="fill">
+                <mat-label>Linkedin</mat-label>
+                <input matInput type="url" placeholder="LinkedIn" formControlName="linkedin" required>
+            </mat-form-field>
+        </mat-step>
+
+        <mat-step>
+            <ng-template matStepLabel>Enviar</ng-template>
+            <div class="buttons">
+                <button mat-button mat-dialog-close>Fechar</button>
+                <button type="submit" mat-raised-button [mat-dialog-close]="true" color="primary">ENVIAR</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</form>
