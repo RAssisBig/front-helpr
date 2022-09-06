@@ -26,6 +26,22 @@
               <mat-slide-toggle color="secundary" [(ngModel)]="isChecked" (change)="changed($event)">
                 <mat-icon>{{ mode }}</mat-icon>
               </mat-slide-toggle>
+              <div class="logo-menu-login">
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                  <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="logo">
+                  <mat-icon>arrow_drop_down</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button routerLink="/perfil" mat-menu-item>
+                    <mat-icon>person</mat-icon>
+                    <span>Meu perfil</span>
+                  </button>
+                  <button routerLink="/logout" mat-menu-item>
+                    <mat-icon>logout</mat-icon>
+                    <span>Sair</span>
+                  </button>
+                </mat-menu>
+              </div>
               <a routerLink="/home">
                 <img src="assets/icons/icon-72x72.png" alt="Logo" />
               </a>

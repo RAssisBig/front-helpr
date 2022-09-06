@@ -1,3 +1,4 @@
+import { PerfilModule } from './../../components/perfil/perfil.module';
 import { NgModule } from '@angular/core';
 import { ChamadosModule } from 'src/app/components/chamados/chamados.module';
 import { ClientesModule } from 'src/app/components/clientes/clientes.module';
@@ -12,7 +13,8 @@ import { TecnicosModule } from 'src/app/components/tecnicos/tecnicos.module';
     LoginModule,
     TecnicosModule,
     ClientesModule,
-    ChamadosModule
+    ChamadosModule,
+    PerfilModule
   ]
 })
 export class PagesModule { }
