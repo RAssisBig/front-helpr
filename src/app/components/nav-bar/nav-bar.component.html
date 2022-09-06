@@ -1,56 +1,40 @@
 <mat-drawer-container autosize>
-    <mat-drawer #drawer mode="over">
-        <img src="https://user-images.githubusercontent.com/31005408/175540636-a2b67183-55dd-440b-a1f8-5d6484b008ea.png" alt="logo-helpr" class="logo-menu">
-        <mat-nav-list>
-            <mat-form-field appearance="standard" class="full-width">
-                <mat-label>Filtro</mat-label>
-                <input matInput (keyup)="applyFilter(input.value)" #input>
-            </mat-form-field>
-            <a mat-list-item [routerLink]="[menu.route]" *ngFor="let menu of menuList">
-                <mat-icon color="primary">{{menu.icone}}</mat-icon>
-                {{menu.content}}
-            </a>
-        </mat-nav-list>
-    </mat-drawer>
-
-    <mat-drawer-content>
-
-        <mat-toolbar color="primary">
-            <button mat-icon-button (click)="drawer.toggle()">
-                <mat-icon matTooltip="Menu">menu</mat-icon>
-            </button>
-            <span>
-                <h1>HelpR</h1>
-            </span>
-            <div class="boxcontainer">
-              <mat-slide-toggle color="secundary" [(ngModel)]="isChecked" (change)="changed($event)">
-                <mat-icon>{{ mode }}</mat-icon>
-              </mat-slide-toggle>
-              <div class="logo-menu-login">
-                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
-                  <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="logo">
-                  <mat-icon>arrow_drop_down</mat-icon>
-                </button>
-                <mat-menu #menu="matMenu">
-                  <button routerLink="/perfil" mat-menu-item>
-                    <mat-icon>person</mat-icon>
-                    <span>Meu perfil</span>
-                  </button>
-                  <button routerLink="/logout" mat-menu-item>
-                    <mat-icon>logout</mat-icon>
-                    <span>Sair</span>
-                  </button>
-                </mat-menu>
-              </div>
-              <a routerLink="/home">
-                <img src="assets/icons/icon-72x72.png" alt="Logo" />
-              </a>
-            </div>
-        </mat-toolbar>
-
-        <div class="container">
-            <ng-content></ng-content>
-        </div>
-
-    </mat-drawer-content>
+  <mat-drawer #drawer mode="over">
+    <img src="https://user-images.githubusercontent.com/31005408/175540636-a2b67183-55dd-440b-a1f8-5d6484b008ea.png"
+      alt="logo-helpr" class="logo-menu">
+    <mat-nav-list>
+      <mat-form-field appearance="standard" class="full-width">
+        <mat-label>Filtro</mat-label>
+        <input matInput (keyup)="applyFilter(input.value)" #input>
+      </mat-form-field>
+      <a mat-list-item [routerLink]="[menu.route]" *ngFor="let menu of menuList">
+        <mat-icon color="primary">{{menu.icone}}</mat-icon>
+        {{menu.content}}
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon matTooltip="Menu">menu</mat-icon>
+      </button>
+      <span>
+        <h1>HelpR</h1>
+      </span>
+      <div class="boxcontainer">
+        <mat-slide-toggle color="secundary" [(ngModel)]="isChecked" (change)="changed($event)">
+          <mat-icon>{{ mode }}</mat-icon>
+        </mat-slide-toggle>
+        <a routerLink="/home">
+          <img src="assets/icons/icon-72x72.png" alt="Logo" />
+        </a>
+      </div>
+    </mat-toolbar>
+    <div class="body">
+      <div class="container">
+        <ng-content></ng-content>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </mat-drawer-content>
 </mat-drawer-container>
