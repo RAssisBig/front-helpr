@@ -1,0 +1,11 @@
+<ng-template #spinner class="spinner">
+  <mat-spinner color="primary" mode="indeterminate"></mat-spinner>
+</ng-template>
+<div class="list" *ngIf="isLoad; else spinner">
+  <ol>
+    <li *ngFor="let chamado of chamadosAbertosList">
+      {{chamado.titulo}} | Cliente: {{chamado.nomeCliente}}
+    </li>
+  </ol>
+  <button mat-raised-button color="warn" mat-dialog-close>Fechar</button>
+</div>

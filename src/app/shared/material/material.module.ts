@@ -20,6 +20,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   exports: [
     MatToolbarModule,
@@ -42,7 +44,9 @@ import { MatMenuModule } from '@angular/material/menu';
     MatStepperModule,
     MatTabsModule,
     MatGridListModule,
-    MatMenuModule
+    MatMenuModule,
+    MatBadgeModule,
+    MatProgressSpinnerModule
   ]
 })
 export class MaterialModule { }

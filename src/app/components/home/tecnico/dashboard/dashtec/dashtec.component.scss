@@ -19,3 +19,11 @@
 .dashboard-card-content {
   text-align: center;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  button {
+    margin-right: 30px;
+  }
+}

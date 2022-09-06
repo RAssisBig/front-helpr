@@ -2,7 +2,6 @@
   width: 100%;
   overflow: visible;
   align-content: center;
-
 }
 
 mat-grid-list{
@@ -21,3 +20,15 @@ mat-grid-tile{
   margin-bottom: 25px;
   text-align: center;
 }
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  button {
+    margin-right: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+
+

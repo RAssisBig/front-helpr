@@ -15,6 +15,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashadminComponent } from './admin/dashboard/dashadmin/dashadmin.component';
+import { DialogChamadosAbertosComponent } from './admin/dashboard/dialog-chamados-abertos/dialog-chamados-abertos.component';
+import { DialogChamadosUrgentesComponent } from './admin/dashboard/dialog-chamados-urgentes/dialog-chamados-urgentes.component';
+import { DialogChamadosTecnicoAbertosComponent } from './tecnico/dashboard/dialog-chamados-tecnico-abertos/dialog-chamados-tecnico-abertos.component';
+import { DialogChamadosTecnicoUrgentesComponent } from './tecnico/dashboard/dialog-chamados-tecnico-urgentes/dialog-chamados-tecnico-urgentes.component';
 
 
 
@@ -29,7 +33,11 @@ import { DashadminComponent } from './admin/dashboard/dashadmin/dashadmin.compon
     TecnicoDashboardComponent,
     AdminDashboardComponent,
     DashtecComponent,
-    DashadminComponent
+    DashadminComponent,
+    DialogChamadosAbertosComponent,
+    DialogChamadosUrgentesComponent,
+    DialogChamadosTecnicoAbertosComponent,
+    DialogChamadosTecnicoUrgentesComponent
   ],
   imports: [
     CommonModule,
