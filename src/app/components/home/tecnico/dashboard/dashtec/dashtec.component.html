@@ -3,29 +3,105 @@
     <button (click)="openDialogAbertos()" mat-raised-button color="primary" [matBadge]="contarChamadosEmAberto()" matBadgeColor="warn" matBadgeOverlap="false">Chamados em Aberto</button>
     <button (click)="openDialogUrgentes()" mat-raised-button color="primary" [matBadge]="contarChamadosUrgentes()" matBadgeColor="warn" matBadgeOverlap="false">Chamados Urgentes</button>
   </div>
-  <mat-grid-list cols="4" rowHeight="350px" gutterSize=" 15px">
-  <mat-grid-tile class="block" colspan="2" rowspan="1">
-    Chamados
-  </mat-grid-tile>
 
-  <mat-grid-tile class="block" colspan="2" rowspan="1">
-    Meta semanal
-  </mat-grid-tile>
+  <mat-tab-group class="tabs" mat-align-tabs="center">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Desempenho Semanal
+      </ng-template>
+      <mat-grid-list cols="4" rowHeight="350px" gutterSize=" 15px">
+        <mat-grid-tile class="block" colspan="2" rowspan="1">
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+                Chamados
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              ####   Conteúdo do card aqui (grafico)  #####
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
 
-  <mat-grid-tile class="block" colspan="2" rowspan="1">
-    Demanda da região
-  </mat-grid-tile>
+        <mat-grid-tile class="block" colspan="2" rowspan="1">
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+                Meta semanal
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              ####   Conteúdo do card aqui (grafico linha)   #####
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
 
-  <mat-grid-tile class="block" colspan="2" rowspan="1">
-    Prioridades
-  </mat-grid-tile>
+        <mat-grid-tile class="block" colspan="4" rowspan="1">
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+                Demanda da região
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              ####   Conteúdo do card aqui (grafico em mapa)   #####
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-tab>
 
-  <mat-grid-tile class="block" colspan="2" rowspan="1">
-    Chamados pendentes
-  </mat-grid-tile>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Chamados Urgentes
+      </ng-template>
+      <mat-grid-list cols="4" rowHeight="350px" gutterSize=" 15px">
+        <mat-grid-tile class="block" colspan="4" rowspan="1">
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+                Prioridades dos clientes
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              ####   Conteúdo do card aqui  (tabela)   #####
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
 
-  <mat-grid-tile class="block" colspan="4" rowspan="1">
-    Relatórios
-  </mat-grid-tile>
-  </mat-grid-list>
+        <mat-grid-tile class="block" colspan="4" rowspan="1">
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+                Chamados pendentes
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              ####   Conteúdo do card aqui (tabela)  #####
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-tab>
+
+    <mat-tab>
+      <ng-template mat-tab-label>
+        Relatórios Admin
+      </ng-template>
+      <mat-grid-list cols="4" rowHeight="350px" gutterSize=" 15px">
+        <mat-grid-tile class="block" colspan="4" rowspan="1">
+          <mat-card class="dashboard-card">
+            <mat-card-header>
+              <mat-card-title>
+                Relatórios
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              ####   Conteúdo do card aqui   #####
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </mat-tab>
+  </mat-tab-group>
 </div>
