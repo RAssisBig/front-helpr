@@ -1,14 +1,24 @@
-form a,
-form button {
-    margin-left: 20px;
-    float: right;
+img {
+  height: 200px;
 }
 
-.section {
-    margin-bottom: 20px;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.margin {
-    margin-right: 15px;
+.mat-card {
+  width: 300px;
+  height: 250px;
+  border-radius: 10px;
+  padding-top: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
+.button {
+  display: flex;
+  justify-content: flex-end;
+}

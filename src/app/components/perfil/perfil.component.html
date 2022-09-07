@@ -1,1 +1,27 @@
-<h1>Página de Perfil de usuário logado fica aqui</h1>
+<nav-bar>
+
+  <div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+
+    <mat-card class="card-perfil">
+      <mat-card-title-group>
+        <mat-card-title>Meu Perfil</mat-card-title>
+      </mat-card-title-group>
+      <mat-card-content>
+        <mat-dialog-content>
+          <dl class="list-details">
+            <dt>Nome</dt>
+            <dd>{{username}}</dd>
+            <dt>CPF</dt>
+            <dd>{{cpf}}</dd>
+            <dt>Email</dt>
+            <dd>{{email}}</dd>
+          </dl>
+          <div class="button">
+          <button mat-button mat-dialog-close>Editar</button>
+        </div>
+        </mat-dialog-content>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</nav-bar>
