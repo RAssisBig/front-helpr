@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Chamado } from 'src/app/models/chamado';
@@ -12,7 +12,7 @@ import { TecnicoService } from 'src/app/services/tecnico.service';
 type DataSection = {
   title: string,
   value: number
-}
+};
 
 @Component({
   selector: 'app-chamado-create',
@@ -20,17 +20,16 @@ type DataSection = {
   styleUrls: ['./chamado-create.component.scss']
 })
 export class ChamadoCreateComponent implements OnInit {
-
   public statusList: DataSection[] = [
-    { title: "Aberto", value: 0 },
-    { title: "Em andamento", value: 1 },
-    { title: "Encerrado", value: 2 }
+    { title: 'Aberto', value: 0 },
+    { title: 'Em andamento', value: 1 },
+    { title: 'Encerrado', value: 2 },
   ];
 
   public prioridadeList: DataSection[] = [
-    { title: "Baixa", value: 0 },
-    { title: "Média", value: 1 },
-    { title: "Alta", value: 2 }
+    { title: 'Baixa', value: 0 },
+    { title: 'Média', value: 1 },
+    { title: 'Alta', value: 2 },
   ];
 
   public clienteList: Cliente[] = [];
@@ -44,19 +43,27 @@ export class ChamadoCreateComponent implements OnInit {
   private service: ChamadoService;
   private router: Router;
 
-  constructor(service: ChamadoService, serviceCliente: ClienteService, serviceTecnico: TecnicoService, formBuilder: FormBuilder, toast: ToastrService, router: Router) {
+  constructor(
+    service: ChamadoService,
+    serviceCliente: ClienteService,
+    serviceTecnico: TecnicoService,
+    formBuilder: FormBuilder,
+    toast: ToastrService,
+    router: Router
+  ) {
     this.service = service;
     this.serviceCliente = serviceCliente;
     this.serviceTecnico = serviceTecnico;
     this.toast = toast;
     this.router = router;
     this.formChamado = formBuilder.group({
-      titulo: ["", [Validators.required, Validators.minLength(3)]],
-      status: ["", [Validators.required]],
-      prioridade: ["", [Validators.required]],
-      cliente: ["", [Validators.required]],
-      tecnico: ["", [Validators.required]],
-      observacoes: ["", [Validators.required, Validators.minLength(6)]]
+      titulo: ['', [Validators.required, Validators.minLength(3)]],
+      status: ['', [Validators.required]],
+      prioridade: ['', [Validators.required]],
+      cliente: ['', [Validators.required]],
+      tecnico: ['', [Validators.required]],
+      observacoes: ['', [Validators.required, Validators.minLength(6)]],
+      uid: '',
     });
   }
 
@@ -66,40 +73,21 @@ export class ChamadoCreateComponent implements OnInit {
   }
 
   initializeClientes(): void {
-    this.serviceCliente.findAll().subscribe(clientes => {
+    this.serviceCliente.findAll().subscribe((clientes) => {
       this.clienteList = clientes;
     });
   }
 
   initializeTecnicos(): void {
-    this.serviceTecnico.findAll().subscribe(tecnicos => {
+    this.serviceTecnico.findAll().subscribe((tecnicos) => {
       this.tecnicoList = tecnicos;
     });
   }
 
-  create(): void {
-    if(this.formChamado.valid) {
-      let chamado: Chamado = this.formChamado.value;
-      this.service.insert(chamado).subscribe({
-        next: () => {
-          this.toast.success("Chamado adicionado com sucesso.", "Sucesso");
-          this.router.navigate(["/chamados"]);
-        },
-        error: errorResponse => {
-          let errors = errorResponse.error.errors;
-          if(errors != undefined) {
-            errors.forEach((error: any) => {
-              this.toast.error(error.message, "Erro");
-            });
-          }
-          else {
-            this.toast.error(errorResponse.error.message, "Erro");
-          }
-        }
-      });
-    }
-    else {
-      this.toast.error("Dados inválidos.", "Erro");
-    }
+  create() {
+    let chamado: Chamado = this.formChamado.value;
+    chamado.uid = chamado.titulo;
+    this.service.salvar(chamado);
+    console.log(chamado);
   }
 }

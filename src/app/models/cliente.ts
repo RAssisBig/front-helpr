@@ -1,4 +1,5 @@
 export interface Cliente {
+    uid?: string;
     id?: number;
     nome: string;
     cpf: string;
