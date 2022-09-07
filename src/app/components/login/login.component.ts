@@ -56,6 +56,9 @@ export class LoginComponent implements OnInit {
                 let cred: Tecnico = response;
                 let userId: any = cred.id;
                 localStorage.setItem("userId", userId);
+                localStorage.setItem("Username", cred.nome);
+                localStorage.setItem("Cpf", cred.cpf);
+                localStorage.setItem("Email", cred.email);
                 if (JSON.stringify(cred.perfis) == JSON.stringify(['ADMIN', 'TECNICO', 'CLIENTE']) || JSON.stringify(cred.perfis) == JSON.stringify(['ADMIN', 'CLIENTE', 'TECNICO'])
                   || JSON.stringify(cred.perfis) == JSON.stringify(['TECNICO', 'ADMIN', 'CLIENTE']) || JSON.stringify(cred.perfis) == JSON.stringify(['TECNICO', 'CLIENTE', 'ADMIN'])
                   || JSON.stringify(cred.perfis) == JSON.stringify(['CLIENTE', 'ADMIN', 'TECNICO']) || JSON.stringify(cred.perfis) == JSON.stringify(['CLIENTE', 'TECNICO', 'ADMIN'])) {
