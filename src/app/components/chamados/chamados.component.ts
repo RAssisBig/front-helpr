@@ -26,6 +26,11 @@ export class ChamadosComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
 
+  public random: number = Math.floor(Math.random() * 19);
+
+  public bancoImagensBanner: string =
+    `https://raw.githubusercontent.com/victoricoma/helprback/main/img/outsiteBanner/${this.random}.png`;
+
   public progressBarChamados: boolean = false;
   private service: ChamadoService;
   private serviceTecnico: TecnicoService;
