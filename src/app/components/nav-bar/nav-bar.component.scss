@@ -2,26 +2,42 @@ mat-drawer-container {
   width: 100%;
   height: 100%;
 
-  .logo-menu-login{
+  .logo-menu-login {
     width: 20%;
     margin-right: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-      img {
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
+    img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
     }
   }
+}
 
+mat-toolbar {
+  display: flex;
+}
+
+#menu-esquerdo {
+  flex: 1;
+}
+
+#logo-centro {
+  flex: 0.8;
+
+  img {
+    width: 72px;
+    height: 72px;
+  }
 }
 
 mat-drawer {
   padding: 20px;
 }
 
-.logo-menu{
+.logo-menu {
   width: 200px;
   display: flex;
   justify-content: center;
@@ -57,13 +73,11 @@ mat-nav-list a mat-icon {
 
 mat-slide-toggle {
   color: rgba(255, 255, 255, 0.753);
-  transform: scale(0.7);
   transition: 0.7s;
 }
 
 mat-slide-toggle:hover {
   width: 100px;
   color: white;
-  transform: scale(1.1);
   transition: 0.7s;
 }
