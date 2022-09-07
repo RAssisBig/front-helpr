@@ -1,4 +1,5 @@
 export interface Tecnico {
+    uid?: string;
     id?: number | string;
     nome: string;
     cpf: string;

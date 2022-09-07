@@ -1,4 +1,5 @@
 export interface Chamado {
+    uid?: string;
     id?: number;
     titulo: string;
     status: number;

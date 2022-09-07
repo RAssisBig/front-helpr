@@ -48,27 +48,10 @@ export class TecnicoCreateComponent implements OnInit {
   }
 
   create(form: NgForm) {
-    if(form.valid) {
-      this.service.insert(this.tecnico).subscribe({
-        next: response => {
-          this.toast.success("Técnico cadastrado com sucesso!", "Sucesso");
-          this.router.navigate(["/tecnicos"]);
-        },
-        error: errorResponse => {
-          let errors = errorResponse.error.errors;
-          if(errors != undefined) {
-            errors.forEach((error: any) => {
-              this.toast.error(error.message, "Erro");
-            });
-          }
-          else {
-            this.toast.error(errorResponse.error.message, "Erro");
-          }
-        }
-      });
-    }
-    else {
-      this.toast.error("Dados inválidos!", "Erro");
+    if (form.valid) {
+      this.tecnico.uid = this.tecnico.cpf;
+      let tecnico: Tecnico = this.tecnico;
+      this.service.salvar(tecnico);
     }
   }
 }
