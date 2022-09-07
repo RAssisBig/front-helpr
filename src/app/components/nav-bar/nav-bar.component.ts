@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { AuthService } from 'src/app/services/auth.service';
 
-const itemsMenu: any = [
+let itemsMenu: any = [
   {
     route: "/home",
     icone: "home",
@@ -40,24 +41,33 @@ const itemsMenu: any = [
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
+
+  public menuList: any = itemsMenu;
+  public authService: AuthService;
+
   mode: string = 'light_mode';
   isChecked: boolean = false;
 
-    changed(event: MatSlideToggleChange): void {
+  changed(event: MatSlideToggleChange): void {
     this.mode = event.checked ? 'light_mode' : 'dark_mode';
     document.body.classList.toggle('darkMode');
   }
 
-  constructor() {}
+  constructor(authService: AuthService) {
+    this.authService = authService;
+  }
 
-  ngOnInit(): void {}
-
-  public menuList: any = itemsMenu;
+  ngOnInit(): void {
+    if(this.authService.isCliente()){
+      itemsMenu = [itemsMenu[0], itemsMenu[4], itemsMenu[5]]     
+      this.menuList = itemsMenu
+    }    
+  }
 
   applyFilter(value: string): void {
-    if(value.length === 0){
+    if (value.length === 0) {
       this.menuList = itemsMenu;
-    }else {
+    } else {
       this.menuList = itemsMenu.filter((menu: any) => {
         if (menu.content.toLowerCase().indexOf(value.toLowerCase()) != -1) {
           return true;
