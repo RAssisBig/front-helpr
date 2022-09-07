@@ -97,7 +97,7 @@ export class LoginComponent implements OnInit {
 
   openClientesFuturos(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(ClientesFuturosComponent, {
-      width: '350px',
+      width: '400px',
       enterAnimationDuration,
       exitAnimationDuration,
     });

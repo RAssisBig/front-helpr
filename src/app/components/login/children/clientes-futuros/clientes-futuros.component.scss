@@ -1,8 +1,23 @@
-.b-container{
+.b-container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
-button {
-  margin-right: 15px;
+.form-cadastro {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+    mat-form-field {
+      width: 100%;
+      margin-bottom: -50px;
+    }
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
 }

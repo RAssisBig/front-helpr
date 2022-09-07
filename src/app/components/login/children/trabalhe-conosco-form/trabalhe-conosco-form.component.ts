@@ -11,7 +11,7 @@ export class TrabalheConoscoFormComponent implements OnInit {
   public formCadastro: FormGroup;
   public formBuilder: FormBuilder;
 
-  isLinear = true;
+  isLinear = false;
   constructor(formBuilder: FormBuilder) {
     this.formBuilder = formBuilder
     this.formCadastro = formBuilder.group({
