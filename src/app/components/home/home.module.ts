@@ -20,10 +20,7 @@ import { DialogChamadosUrgentesComponent } from './admin/dashboard/dialog-chamad
 import { DialogChamadosTecnicoAbertosComponent } from './tecnico/dashboard/dialog-chamados-tecnico-abertos/dialog-chamados-tecnico-abertos.component';
 import { DialogChamadosTecnicoUrgentesComponent } from './tecnico/dashboard/dialog-chamados-tecnico-urgentes/dialog-chamados-tecnico-urgentes.component';
 import { LogPerfisComponent } from './admin/dashboard/logPerfis/log-perfis/log-perfis.component';
-
-
-
-
+import { ChamadosModule } from '../chamados/chamados.module';
 
 
 
@@ -41,6 +38,7 @@ import { LogPerfisComponent } from './admin/dashboard/logPerfis/log-perfis/log-p
     DialogChamadosTecnicoAbertosComponent,
     DialogChamadosTecnicoUrgentesComponent,
     LogPerfisComponent
+   
   ],
   imports: [
     CommonModule,
@@ -52,7 +50,8 @@ import { LogPerfisComponent } from './admin/dashboard/logPerfis/log-perfis/log-p
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule
+    LayoutModule,
+    ChamadosModule,
   ],
   exports: [
     HomeComponent,
