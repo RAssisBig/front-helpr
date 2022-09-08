@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ChamadosRoutingModule } from './chamados-routing.module';
 import { ChamadosComponent } from './chamados.component';
 import { NavBarModule } from '../nav-bar/nav-bar.module';
@@ -12,6 +11,8 @@ import { ChamadoUpdateComponent } from './children/chamado-update/chamado-update
 import { ChamadoDetailsComponent } from './children/chamado-details/chamado-details.component';
 import { ChamadoClientsComponent } from './children/chamado-clients/chamado-clients.component';
 import { ChamadoTecnicosComponent } from './children/chamado-tecnicos/chamado-tecnicos.component';
+import { LogPrioridadeComponent } from './children/log-prioridade/log-prioridade.component';
+
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ChamadoTecnicosComponent } from './children/chamado-tecnicos/chamado-te
     ChamadoUpdateComponent,
     ChamadoDetailsComponent,
     ChamadoClientsComponent,
-    ChamadoTecnicosComponent
+    ChamadoTecnicosComponent,
+    LogPrioridadeComponent
   ],
   imports: [
     CommonModule,
@@ -35,7 +37,11 @@ import { ChamadoTecnicosComponent } from './children/chamado-tecnicos/chamado-te
   exports: [
     ChamadosComponent,
     ChamadoCreateComponent,
-    ChamadoUpdateComponent
+    ChamadoUpdateComponent,
+    LogPrioridadeComponent,
+    
+    
+    
   ]
 })
 export class ChamadosModule { }

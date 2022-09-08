@@ -1,0 +1,26 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Id. </th>
+    <td mat-cell *matCellDef="let chamadoListPrioridade"> {{chamadoListPrioridade.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dtAlteracao">
+    <th mat-header-cell *matHeaderCellDef> Data de Alteração</th>
+    <td mat-cell *matCellDef="let chamadoListPrioridade"> {{chamadoListPrioridade.dtAlteracao}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="prioridadeAntigo">
+    <th mat-header-cell *matHeaderCellDef> Prioridade Antiga </th>
+    <td mat-cell *matCellDef="let chamadoListPrioridade"> {{chamadoListPrioridade.prioridadeAntigo}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="prioridadeNovo">
+    <th mat-header-cell *matHeaderCellDef> Prioridade Nova  </th>
+    <td mat-cell *matCellDef="let chamadoListPrioridade"> {{chamadoListPrioridade.prioridadeNovo}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
