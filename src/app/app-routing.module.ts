@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { ExitComponent } from './utils/exit/exit.component';
 import { FaqComponent } from './faq/faq.component';
+import { AdminGuard } from './guards/admin.guard';
+import { ClientesGuard } from './guards/clientes.guard';
+
 
 const routes: Routes = [
   {
@@ -18,7 +21,7 @@ const routes: Routes = [
   {
     path: "home",
     loadChildren: () => import("./components/home/home.module").then(m => m.HomeModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, ClientesGuard]
   },
   {
     path: 'clientes',
@@ -28,12 +31,12 @@ const routes: Routes = [
   {
     path: 'tecnicos',
     loadChildren: () => import('./components/tecnicos/tecnicos.module').then(m => m.TecnicosModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminGuard, ClientesGuard]
   },
   {
     path: 'chamados',
     loadChildren: () => import('./components/chamados/chamados.module').then(m => m.ChamadosModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, ClientesGuard]
   },
   {
     path: 'perfil',
