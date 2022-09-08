@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Chamado } from 'src/app/models/chamado';
 import { DialogChamadosTecnicoAbertosComponent } from '../dialog-chamados-tecnico-abertos/dialog-chamados-tecnico-abertos.component';
 import { DialogChamadosTecnicoUrgentesComponent } from '../dialog-chamados-tecnico-urgentes/dialog-chamados-tecnico-urgentes.component';
+import { RelatoriosTecnicos } from 'src/app/models/relatorios-tecnicos';
 
 
 @Component({
@@ -64,5 +65,14 @@ contarChamadosEmAberto(): number{
       width: '400px'
     });
   }
-}
+
+  panelOpenState = false ;
+
+    displayedColumns: string[] = ['id', 'mensagem'];
+    dataSource = ELEMENT_DATA;
+  }
+
+  const ELEMENT_DATA: RelatoriosTecnicos[] = [
+    {id: 1, mensagem: "#Aqui vai o relatório de técnico#"}
+  ];
 
