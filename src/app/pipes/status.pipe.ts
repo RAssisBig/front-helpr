@@ -5,17 +5,22 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class StatusPipe implements PipeTransform {
 
-  transform(value: number): string {
-    switch(value) {
+  transform(value: number | string): string {
+    switch (value) {
       case 0:
         return "Aberto";
       case 1:
         return "Em andamento";
       case 2:
         return "Encerrado";
+      case "0":
+        return "Aberto";
+      case "1":
+        return "Em andamento";
+      case "2":
+        return "Encerrado";
       default:
         return "";
     }
   }
-
 }

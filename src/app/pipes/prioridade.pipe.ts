@@ -5,17 +5,22 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PrioridadePipe implements PipeTransform {
 
-  transform(value: number): string {
-    switch(value) {
+  transform(value: number | string): string {
+    switch (value) {
       case 0:
         return "Baixa";
       case 1:
         return "Média";
       case 2:
         return "Alta";
+      case "0":
+        return "Baixa";
+      case "1":
+        return "Média";
+      case "2":
+        return "Alta";
       default:
         return "";
     }
   }
-
 }
