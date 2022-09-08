@@ -38,6 +38,7 @@
 
 table {
   width : 100% ;
+  overflow: auto ;
 }
 
 th {
@@ -49,4 +50,11 @@ th {
 td {
   width: 50%;
   text-align: left;
+}
+
+.example-container {
+  height: 400px;
+  width: 550px;
+  max-width: 100%;
+  overflow: auto;
 }
