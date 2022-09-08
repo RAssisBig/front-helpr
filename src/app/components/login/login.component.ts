@@ -53,29 +53,8 @@ export class LoginComponent implements OnInit {
           let token: string | undefined = response.headers.get('Authorization')?.substring(7);
           if (this.auth.setToken(token)) {
             let decodeToken = this.auth.decodePayloadJWT();
-            this.auth.findByEmail(decodeToken.sub).subscribe({
-              next: response => {
-                let cred: Tecnico = response;
-                let userId: any = cred.id;
-                localStorage.setItem("userId", userId);
-                localStorage.setItem("Username", cred.nome);
-                localStorage.setItem("Cpf", cred.cpf);
-                localStorage.setItem("Email", cred.email);
-                if (JSON.stringify(cred.perfis) == JSON.stringify(['ADMIN', 'TECNICO', 'CLIENTE']) || JSON.stringify(cred.perfis) == JSON.stringify(['ADMIN', 'CLIENTE', 'TECNICO'])
-                  || JSON.stringify(cred.perfis) == JSON.stringify(['TECNICO', 'ADMIN', 'CLIENTE']) || JSON.stringify(cred.perfis) == JSON.stringify(['TECNICO', 'CLIENTE', 'ADMIN'])
-                  || JSON.stringify(cred.perfis) == JSON.stringify(['CLIENTE', 'ADMIN', 'TECNICO']) || JSON.stringify(cred.perfis) == JSON.stringify(['CLIENTE', 'TECNICO', 'ADMIN'])) {
-                  localStorage.setItem("role", "admin");
-                  this.router.navigate(['admin/dashboard']);
-                } if (JSON.stringify(cred.perfis) == JSON.stringify(['TECNICO', 'CLIENTE']) || JSON.stringify(cred.perfis) == JSON.stringify(['CLIENTE', 'TECNICO'])) {
-                  localStorage.setItem("role", "tecnico");
-                  this.router.navigate(['/tecnico/dashboard']);
-                } if (JSON.stringify(cred.perfis) == JSON.stringify(['CLIENTE'])) {
-                  localStorage.setItem("role", "cliente");
-                  this.router.navigate(['/cliente/dashboard']);
-                }
-                this.createCookie();
-              }
-            });
+            decodeToken = decodeToken.sub;
+            this.setRole(decodeToken);
           }
           else {
             this.toastr.error("Acesso negado!", "Login");
@@ -89,6 +68,29 @@ export class LoginComponent implements OnInit {
     else {
       this.toastr.error("E-mail e/ou senha inválido.", "Login");
     }
+  }
+
+  setRole(decodeToken: any) {
+    this.auth.findByEmail(decodeToken).subscribe({
+      next: response => {
+        let cred: any = response;
+        let userId: any = cred.id;
+        localStorage.setItem("userId", userId);
+        localStorage.setItem("Username", cred.nome);
+        localStorage.setItem("Cpf", cred.cpf);
+        localStorage.setItem("Email", cred.email);
+        if (JSON.stringify(cred.perfis.sort()) == JSON.stringify(['ADMIN', 'CLIENTE', 'TECNICO'])) {
+          localStorage.setItem("role", "admin");
+          this.router.navigate(['admin/dashboard']);
+        } if (JSON.stringify(cred.perfis.sort()) == JSON.stringify(['CLIENTE', 'TECNICO'])) {
+          localStorage.setItem("role", "tecnico");
+          this.router.navigate(['/tecnico/dashboard']);
+        } if (JSON.stringify(cred.perfis) == JSON.stringify(['CLIENTE'])) {
+          localStorage.setItem("role", "cliente");
+          this.router.navigate(['/cliente/dashboard']);
+        }
+      }
+    });
   }
 
   abrirSnackCookies() {
@@ -125,10 +127,10 @@ export class LoginComponent implements OnInit {
   }
 
   createCookie() {
-    if(this.isCreateCookie){
+    if (this.isCreateCookie) {
       let credenciais: Credenciais = this.formLogin.value;
-      document.cookie = `email=${credenciais.email}; expires=${new Date(Date.now()+86400000*30).toUTCString()}`;
-      document.cookie = `senha=${credenciais.senha}; expires=${new Date(Date.now()+86400000*30).toUTCString()}`;
+      document.cookie = `email=${credenciais.email}; expires=${new Date(Date.now() + 86400000 * 30).toUTCString()}`;
+      document.cookie = `senha=${credenciais.senha}; expires=${new Date(Date.now() + 86400000 * 30).toUTCString()}`;
     }
   }
 
@@ -138,6 +140,6 @@ export class LoginComponent implements OnInit {
     let senha: string = datas[1];
     email = email.substring(6, email.length);
     senha = senha.substring(7, senha.length);
-    this.formLogin.setValue({email: email, senha: senha});
+    this.formLogin.setValue({ email: email, senha: senha });
   }
 }
