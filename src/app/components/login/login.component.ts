@@ -10,6 +10,7 @@ import { ClientesFuturosComponent } from './children/clientes-futuros/clientes-f
 import { Tecnico } from 'src/app/models/tecnico';
 import { TrabalheConoscoComponent } from './children/trabalhe-conosco/trabalhe-conosco.component';
 import { PromocoesComponent } from './children/promocoes/promocoes.component';
+import { MatCheckbox } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
   private auth: AuthService;
   private router: Router;
   private snack: MatSnackBar;
-
+  public isCreateCookie: boolean = false;
 
   constructor(public dialog: MatDialog, formBuilder: FormBuilder, toastr: ToastrService, auth: AuthService, router: Router, snack: MatSnackBar) {
     this.formLogin = formBuilder.group({
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
     this.abrirSnackCookies();
     this.openPromocoesDialog();
     this.lightTheme();
+    this.initDataCookies();
   }
 
   public logar(): void {
@@ -71,6 +73,7 @@ export class LoginComponent implements OnInit {
                   localStorage.setItem("role", "cliente");
                   this.router.navigate(['/cliente/dashboard']);
                 }
+                this.createCookie();
               }
             });
           }
@@ -115,5 +118,26 @@ export class LoginComponent implements OnInit {
 
   lightTheme() {
     document.body.classList.toggle('darkMode');
+  }
+
+  toggleCheck(check: MatCheckbox) {
+    this.isCreateCookie = check.checked;
+  }
+
+  createCookie() {
+    if(this.isCreateCookie){
+      let credenciais: Credenciais = this.formLogin.value;
+      document.cookie = `email=${credenciais.email}; expires=${new Date(Date.now()+86400000*30).toUTCString()}`;
+      document.cookie = `senha=${credenciais.senha}; expires=${new Date(Date.now()+86400000*30).toUTCString()}`;
+    }
+  }
+
+  initDataCookies() {
+    let datas: string[] = document.cookie.split(";");
+    let email: string = datas[0];
+    let senha: string = datas[1];
+    email = email.substring(6, email.length);
+    senha = senha.substring(7, senha.length);
+    this.formLogin.setValue({email: email, senha: senha});
   }
 }

@@ -30,6 +30,9 @@
       <mat-label>Senha</mat-label>
       <input type="password" matInput formControlName="senha" />
     </mat-form-field>
+    <section>
+      <mat-checkbox (change)="toggleCheck(check)" #check>Lembrar-me</mat-checkbox>
+    </section>
     <button type="submit" mat-raised-button color="primary" class="full-width">
       Login
     </button>
