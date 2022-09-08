@@ -27,10 +27,10 @@ export class DialogChamadosAbertosComponent implements OnInit {
   }
 
   comporListaAberto(): void{
-    console.log("oi")
+    let dado = localStorage.getItem("userId");
+    let tecnico = (dado == null) ? -1 : Number(dado);
     this.chamadosList.forEach(chamado => {
-      if(chamado.status == 0){
-        console.log(chamado.status)
+      if(chamado.status == 0 && chamado.tecnico == tecnico){
         this.chamadosAbertosList.push(chamado);
       }
     });

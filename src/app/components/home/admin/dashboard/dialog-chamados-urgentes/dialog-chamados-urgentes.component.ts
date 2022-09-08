@@ -26,9 +26,10 @@ export class DialogChamadosUrgentesComponent implements OnInit {
   }
 
   comporListaUrgente(): void{
+    let dado = localStorage.getItem("userId");
+    let tecnico = (dado == null) ? -1 : Number(dado);
     this.chamadosList.forEach(chamado => {
-      if(chamado.prioridade == 2){
-        console.log(chamado.status)
+      if(chamado.prioridade == 2 && chamado.tecnico == tecnico){
         this.chamadosUrgentesList.push(chamado);
       }
     });
