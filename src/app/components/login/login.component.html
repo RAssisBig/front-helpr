@@ -1,26 +1,17 @@
 <mat-toolbar>
-  <img
-    id="logoNavbar"
-    src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/logoQuadrado/1.png"
-    alt=""
-  />
+  <img id="logoNavbar" src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/logoQuadrado/1.png"
+    alt="" />
   <div class="buttons">
-    <button
-      mat-button
-      matTooltip="Trabalhe conosco"
-      (click)="openDialog('500ms', '333ms')"
-    >
+    <button mat-button matTooltip="Trabalhe conosco" (click)="openDialog('500ms', '333ms')">
       <mat-icon color="primary">badge</mat-icon>
     </button>
   </div>
 </mat-toolbar>
 
 <div class="login">
-  <img
-    src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/outsiteBanner/1.png"
-    class="full-width banner"
-  />
-  <form class="mat-elevation-z8" [formGroup]="formLogin" (ngSubmit)="logar()">
+  <img src="https://raw.githubusercontent.com/victoricoma/helprback/main/img/outsiteBanner/1.png"
+    class="full-width banner" />
+  <form class="mat-elevation-z8 animate__animated animate__bounceInRight" [formGroup]="formLogin" (ngSubmit)="logar()">
     <img src="assets/img/ext1.png" alt="Helpr" class="full-width tamanho" />
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>E-mail</mat-label>
@@ -36,20 +27,12 @@
     <button type="submit" mat-raised-button color="primary" class="full-width">
       Login
     </button>
-    <p><span>Ainda não é um cliente?</span></p>
-    <a
-      (click)="openClientesFuturos('0ms', '0ms')"
-      mat-raised-button
-      class="full-width"
-      >Cadastre-se</a
-    >
+    <p class="animate__animated animate__shakeX animate__delay-2s"><span>Ainda não é um cliente?</span></p>
+    <a (click)="openClientesFuturos('0ms', '0ms')" mat-raised-button
+      class="full-width animate__animated animate__pulse animate__delay-3s animate__repeat-2">Cadastre-se</a>
   </form>
-  <df-messenger
-    intent="WELCOME"
-    chat-title="HelprAgent"
-    agent-id="5b6e68b8-cb7a-4d7f-9c2e-fe44be9e9082"
+  <df-messenger intent="WELCOME" chat-title="HelprAgent" agent-id="5b6e68b8-cb7a-4d7f-9c2e-fe44be9e9082"
     language-code="pt-br"
-    chat-icon="https://user-images.githubusercontent.com/31005408/175540574-9d72bed8-746c-42b7-aaae-8f5dc28ac8e8.png"
-  >
+    chat-icon="https://user-images.githubusercontent.com/31005408/175540574-9d72bed8-746c-42b7-aaae-8f5dc28ac8e8.png">
   </df-messenger>
 </div>
