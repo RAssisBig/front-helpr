@@ -7,6 +7,7 @@ import { FaqComponent } from './faq/faq.component';
 import { AdminGuard } from './guards/admin.guard';
 import { ClientesGuard } from './guards/clientes.guard';
 import { LoginComponent } from './components/login/login.component';
+import { TecnicoGuard } from './guards/tecnico.guard';
 
 
 const routes: Routes = [
@@ -27,17 +28,17 @@ const routes: Routes = [
   {
     path: 'clientes',
     loadChildren: () => import('./components/clientes/clientes.module').then(m => m.ClientesModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, AdminGuard || TecnicoGuard]
   },
   {
     path: 'tecnicos',
     loadChildren: () => import('./components/tecnicos/tecnicos.module').then(m => m.TecnicosModule),
-    canActivate: [AuthGuard, AdminGuard, ClientesGuard]
+    canActivate: [AuthGuard, AdminGuard]
   },
   {
     path: 'chamados',
     loadChildren: () => import('./components/chamados/chamados.module').then(m => m.ChamadosModule),
-    canActivate: [AuthGuard, ClientesGuard]
+    canActivate: [AuthGuard, AdminGuard || TecnicoGuard]
   },
   {
     path: 'perfil',
