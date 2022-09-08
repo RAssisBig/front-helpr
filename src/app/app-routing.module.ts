@@ -6,6 +6,7 @@ import { ExitComponent } from './utils/exit/exit.component';
 import { FaqComponent } from './faq/faq.component';
 import { AdminGuard } from './guards/admin.guard';
 import { ClientesGuard } from './guards/clientes.guard';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
@@ -45,7 +46,7 @@ const routes: Routes = [
   },
   {
     path: "logout",
-    component: ExitComponent,
+    component: LoginComponent,
     canActivate: [AuthGuard]
   },
   {
