@@ -13,12 +13,12 @@
 
   <ng-container matColumnDef="prioridadeAntigo">
     <th mat-header-cell *matHeaderCellDef> Prioridade Antiga </th>
-    <td mat-cell *matCellDef="let chamadoListPrioridade"> {{chamadoListPrioridade.prioridadeAntigo}} </td>
+    <td mat-cell *matCellDef="let chamadoListPrioridade"> {{chamadoListPrioridade.prioridadeAntigo | prioridade }} </td>
   </ng-container>
 
   <ng-container matColumnDef="prioridadeNovo">
     <th mat-header-cell *matHeaderCellDef> Prioridade Nova  </th>
-    <td mat-cell *matCellDef="let chamadoListPrioridade"> {{chamadoListPrioridade.prioridadeNovo}} </td>
+    <td mat-cell *matCellDef="let chamadoListPrioridade"> {{chamadoListPrioridade.prioridadeNovo | prioridade }} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
