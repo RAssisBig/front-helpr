@@ -31,8 +31,10 @@ export class DashtecComponent implements OnInit{
 
 contarChamadosEmAberto(): number{
     this.countEmAberto = 0;
+    let dado = localStorage.getItem("userId");
+    let tecnico = (dado == null) ? -1 : Number(dado);
     this.chamadosList.forEach(chamado => {
-      if(chamado.status == 0){
+      if(chamado.status == 0 && chamado.tecnico == tecnico){
         this.countEmAberto += 1;
       }
     });
@@ -41,8 +43,10 @@ contarChamadosEmAberto(): number{
 
   contarChamadosUrgentes(): number{
     this.countEmAndamento = 0;
+    let dado = localStorage.getItem("userId");
+    let tecnico = (dado == null) ? -1 : Number(dado);
     this.chamadosList.forEach(chamado => {
-      if(chamado.prioridade == 2){
+      if(chamado.prioridade == 2 && chamado.tecnico == tecnico){
         this.countEmAndamento += 1;
       }
     });
