@@ -1,38 +1,26 @@
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { AuthService } from 'src/app/services/auth.service';
 
 let itemsMenu: any = [
-  {
-    route: "/home",
-    icone: "home",
-    content: "Página inicial"
-  },
-  {
-    route: "/clientes",
-    icone: "person",
-    content: "Cliente"
-  },
-  {
-    route: "/tecnicos",
-    icone: "support_agent",
-    content: "Técnicos"
-  },
-  {
-    route: "/chamados",
-    icone: "perm_phone_msg",
-    content: "Chamados"
-  },
-  {
-    route: "/faq",
-    icone: "quiz",
-    content: "FAQ"
-  },
-  {
-    route: "/logout",
-    icone: "logout",
-    content: "Sair"
-  }
+  { route: "/home", icone: "home", content: "Página inicial" },
+  { route: "/clientes", icone: "person", content: "Cliente" },
+  { route: "/tecnicos", icone: "support_agent", content: "Técnicos" },
+  { route: "/chamados", icone: "perm_phone_msg",content: "Chamados" },
+  { route: "/faq", icone: "quiz", content: "FAQ" },
+  { route: "/logout", icone: "logout", content: "Sair" }
+];
+let itemsMenuTecnico: any = [
+  { route: "/home", icone: "home", content: "Página inicial" },
+  { route: "/clientes", icone: "person", content: "Cliente" },
+  { route: "/chamados", icone: "perm_phone_msg", content: "Chamados" },
+  { route: "/faq", icone: "quiz", content: "FAQ" },
+  { route: "/logout", icone: "logout", content: "Sair" }
+];
+let itemsMenuCliente: any = [
+  { route: "/home", icone: "home", content: "Página inicial" },
+  { route: "/faq", icone: "quiz", content: "FAQ" },
+  { route: "/logout", icone: "logout", content: "Sair" }
 ];
 
 @Component({
@@ -43,7 +31,7 @@ let itemsMenu: any = [
 export class NavBarComponent implements OnInit {
 
   public menuList: any = itemsMenu;
-  public authService: AuthService;
+  private authService: AuthService;
 
   mode: string = 'light_mode';
   isChecked: boolean = false;
@@ -52,16 +40,26 @@ export class NavBarComponent implements OnInit {
     this.mode = event.checked ? 'light_mode' : 'dark_mode';
     document.body.classList.toggle('darkMode');
   }
-
   constructor(authService: AuthService) {
     this.authService = authService;
   }
 
   ngOnInit(): void {
     if(this.authService.isCliente()){
-      itemsMenu = [itemsMenu[0], itemsMenu[4], itemsMenu[5]]     
+      itemsMenu = [itemsMenu[0], itemsMenu[4], itemsMenu[5]]
       this.menuList = itemsMenu
-    }    
+    }
+    this.adjustItemsMenu();
+  }
+
+  private adjustItemsMenu(): void {
+    if (this.authService.isTecnico()){
+      itemsMenu = itemsMenuTecnico;
+    }
+    else if (this.authService.isCliente()){
+      itemsMenu = itemsMenuCliente;
+    }
+    this.menuList = itemsMenu;
   }
 
   applyFilter(value: string): void {
