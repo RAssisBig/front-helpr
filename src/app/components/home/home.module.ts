@@ -22,6 +22,7 @@ import { DialogChamadosTecnicoUrgentesComponent } from './tecnico/dashboard/dial
 import { LogPerfisComponent } from './admin/dashboard/logPerfis/log-perfis/log-perfis.component';
 import { ChamadosModule } from '../chamados/chamados.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
+import { GraficoChamadosComponent } from './tecnico/dashboard/grafico-chamados/grafico-chamados.component';
 
 
 
@@ -37,7 +38,8 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
     DialogChamadosUrgentesComponent,
     DialogChamadosTecnicoAbertosComponent,
     DialogChamadosTecnicoUrgentesComponent,
-    LogPerfisComponent
+    LogPerfisComponent,
+    GraficoChamadosComponent
 
   ],
   imports: [
