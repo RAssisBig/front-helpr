@@ -24,6 +24,7 @@ import { ChamadosModule } from '../chamados/chamados.module';
 import { PipesModule } from 'src/app/pipes/pipes.module';
 import { GraficoChamadosComponent } from './tecnico/dashboard/grafico-chamados/grafico-chamados.component';
 import { TableLogComponent } from './admin/dashboard/table-log/table-log.component';
+import { ChamadoUrgenteComponent } from './admin/dashboard/chamado-urgente/chamado-urgente.component';
 
 
 
@@ -41,7 +42,8 @@ import { TableLogComponent } from './admin/dashboard/table-log/table-log.compone
     DialogChamadosTecnicoUrgentesComponent,
     LogPerfisComponent,
     GraficoChamadosComponent,
-    TableLogComponent
+    TableLogComponent,
+    ChamadoUrgenteComponent
 
   ],
   imports: [
