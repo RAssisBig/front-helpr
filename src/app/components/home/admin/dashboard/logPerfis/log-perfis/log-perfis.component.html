@@ -11,3 +11,16 @@
       <table-log></table-log>
     </mat-expansion-panel>
   </mat-accordion>
+  <mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Troca de Status dos chamados
+      </mat-panel-title>
+      <mat-panel-description>
+        {{panelOpenState ? 'Aberto' : 'Fechado'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <log-status></log-status>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,25 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let chamadoLogStatus"> {{chamadoLogStatus.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dtAlteracao">
+        <th mat-header-cell *matHeaderCellDef> Data de Alteração </th>
+        <td mat-cell *matCellDef="let chamadoLogStatus"> {{chamadoLogStatus.dtAlteracao}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="statusAntigo">
+        <th mat-header-cell *matHeaderCellDef> Status Antigo </th>
+        <td mat-cell *matCellDef="let chamadoLogStatus"> {{chamadoLogStatus.statusAntigo | status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="statusNovo">
+        <th mat-header-cell *matHeaderCellDef> Status Novo </th>
+        <td mat-cell *matCellDef="let chamadoLogStatus"> {{chamadoLogStatus.statusNovo | status}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

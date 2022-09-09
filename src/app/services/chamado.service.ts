@@ -119,7 +119,11 @@ export class ChamadoService {
     this.table = this.db.table('chamado');
   }
 
-LogPrioridade(): Observable<any[]>{
-  return this.http.get<any[]>(`${API_CONFIG.serviceUrl}/chamados/log/prioridade`);
-}
+  LogPrioridade(): Observable<any[]> {
+    return this.http.get<any[]>(`${API_CONFIG.serviceUrl}/chamados/log/prioridade`);
+  }
+
+  logStatus(): Observable<any[]> {
+    return this.http.get<any[]>(`${API_CONFIG.serviceUrl}/chamados/log/status`);
+  }
 }
