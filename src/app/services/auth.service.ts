@@ -55,16 +55,8 @@ export class AuthService {
     let flag: boolean = false;
     let token: string | null = this.getToken();
     if (token != null) {
-      let tokenTime: any = this.jwt.getTokenExpirationDate(token);
       flag = !this.jwt.isTokenExpired(token);
-      let timerMilissegundos = (tokenTime - Date.now());
-      let timerHoras = Math.round(timerMilissegundos / (1000 * 60 * 60))
-      if (timerHoras !== 0) {
-        console.log(`A sessão expirará em ${timerHoras} horas...`);
-      }
-      else {
-        console.log("Sessão expirada!")
-      }
+      this.getTimeExpirationToken();
     }
     return flag;
   }
@@ -98,5 +90,15 @@ export class AuthService {
       flag = true;
     }
     return flag;
+  }
+  getTimeExpirationToken(): any {
+    let token: string | null = localStorage.getItem('token');
+    if (token !== null) {
+      let tokenTimer: any = this.jwt.getTokenExpirationDate(token);
+      let timerMiliSec = (tokenTimer - Date.now());
+      let timerHoras = Math.round(timerMiliSec / (1000 * 60 * 60))
+      return timerHoras;
+    }
+    return null;
   }
 }
