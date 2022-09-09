@@ -5,6 +5,16 @@
       alt="logo-helpr"
       class="logo-menu"
     />
+    <mat-card class="progressBarTimer">
+      <mat-card-content>
+          <mat-icon id="timer" color="primary">timer</mat-icon>
+          <label for="timer">{{countDownTimer}} horas restantes</label>
+        <section class="example-section">
+          <mat-progress-bar class="example-margin" color="primary" mode="determinate" [value]="value">
+          </mat-progress-bar>
+        </section>
+      </mat-card-content>
+    </mat-card>
     <mat-nav-list>
       <mat-form-field appearance="standard" class="full-width">
         <mat-label>Filtro</mat-label>
