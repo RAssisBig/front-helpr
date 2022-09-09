@@ -25,6 +25,7 @@ import { PipesModule } from 'src/app/pipes/pipes.module';
 import { GraficoChamadosComponent } from './tecnico/dashboard/grafico-chamados/grafico-chamados.component';
 import { TableLogComponent } from './admin/dashboard/table-log/table-log.component';
 import { ChamadoUrgenteComponent } from './admin/dashboard/chamado-urgente/chamado-urgente.component';
+import { UrgenciasComponent } from './admin/dashboard/urgencias/urgencias.component';
 
 
 
@@ -43,7 +44,8 @@ import { ChamadoUrgenteComponent } from './admin/dashboard/chamado-urgente/chama
     LogPerfisComponent,
     GraficoChamadosComponent,
     TableLogComponent,
-    ChamadoUrgenteComponent
+    ChamadoUrgenteComponent,
+    UrgenciasComponent
 
   ],
   imports: [
@@ -64,7 +66,8 @@ import { ChamadoUrgenteComponent } from './admin/dashboard/chamado-urgente/chama
     HomeComponent,
     ClienteDashboardComponent,
     TecnicoDashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    UrgenciasComponent
   ]
 })
 export class HomeModule { }

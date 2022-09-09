@@ -1,0 +1,31 @@
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+         Lista de Chamados com Prioridade Alta em Aberto
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+  <div class="example-container mat-elevation-z8">
+      
+    
+      <mat-table #table [dataSource]="dataSource">
+    
+     
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef> Nome do Cliente </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.nomeCliente}} </mat-cell>
+        </ng-container>
+   
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Título do Chamado  </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
+        </ng-container>
+    
+        
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+    </div>
+  </mat-expansion-panel>
+  </mat-accordion>
