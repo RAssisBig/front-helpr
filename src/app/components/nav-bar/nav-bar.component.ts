@@ -1,6 +1,8 @@
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { LogoutDialogComponent } from './logout-dialog/logout-dialog.component';
 
 let itemsMenu: any = [
   { route: "/home", icone: "home", content: "Página inicial" },
@@ -40,7 +42,7 @@ export class NavBarComponent implements OnInit {
     this.mode = event.checked ? 'light_mode' : 'dark_mode';
     document.body.classList.toggle('darkMode');
   }
-  constructor(authService: AuthService) {
+  constructor(authService: AuthService, public dialog: MatDialog) {
     this.authService = authService;
   }
 
@@ -50,6 +52,14 @@ export class NavBarComponent implements OnInit {
       this.menuList = itemsMenu
     }
     this.adjustItemsMenu();
+  }
+
+  openLogoutDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(LogoutDialogComponent, {
+      width: '400px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 
   private adjustItemsMenu(): void {
