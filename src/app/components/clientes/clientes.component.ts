@@ -5,6 +5,10 @@ import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Cliente } from 'src/app/models/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
+import { Chamado } from 'src/app/models/chamado';
+import { MatDialog } from '@angular/material/dialog';
+import { ChamadoService } from 'src/app/services/chamado.service';
+import { ChamadosClientesComponent } from './children/chamados-clientes/chamados-clientes.component';
 
 @Component({
   selector: 'app-clientes',
@@ -14,9 +18,24 @@ import { ClienteService } from 'src/app/services/cliente.service';
 export class ClientesComponent implements OnInit, AfterViewInit {
 
   clienteList: Cliente[] = [];
+  chamadoList: Chamado[] = [];
 
   displayedColumns: string[] = ['id', 'nome', 'cpf', 'email', 'dataCriacao', 'update', 'delete'];
   dataSource = new MatTableDataSource<Cliente>(this.clienteList);
+
+  displayedColumnsChamado2: string[] = [
+    'id',
+    'titulo',
+    'cliente',
+    'tecnico',
+    'dataAbertura',
+    'prioridade',
+    'status',
+    'update',
+    'details',
+  ];
+dataSourceChamado2 = new MatTableDataSource<Chamado>(this.chamadoList);
+
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -33,10 +52,16 @@ export class ClientesComponent implements OnInit, AfterViewInit {
   public progressBarCliente: boolean = false;
   private service: ClienteService;
   private toast: ToastrService;
+  private dialog: MatDialog;
+  private serviceChamado: ChamadoService;
 
-  constructor(service: ClienteService, toast: ToastrService) {
+
+  constructor(service: ClienteService, serviceChamado: ChamadoService, toast: ToastrService, dialog: MatDialog) {
     this.service = service;
     this.toast = toast;
+    this.dialog = dialog;
+    this.serviceChamado = serviceChamado;
+
   }
 
   ngOnInit(): void {
@@ -65,5 +90,15 @@ export class ClientesComponent implements OnInit, AfterViewInit {
         this.initializeTable();
       }
     })
+  }
+  openClienteInfoDialog(cliente: number): void {
+    let infoCliente;
+    this.service.findById(cliente).subscribe((cliente) => {
+      infoCliente = cliente;
+      this.dialog.open(ChamadosClientesComponent, {
+        data: infoCliente,
+        width: '1000px',
+      });
+    });
   }
 }

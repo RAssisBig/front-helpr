@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Informações do chamado</h2>
+<mat-card class="list-details">
+    <ul>
+        <li *ngFor="let chamado of chamadoListFilter">
+            <dd>Id: {{ chamado.id }}</dd>
+            <dd>Cliente: {{ chamado.nomeCliente }}</dd>
+            <dd>Técnico: {{ chamado.nomeTecnico }}</dd>
+            <dd>Status: {{ chamado.status | status }}</dd>
+            <dd>Prioridade: {{ chamado.prioridade | prioridade }}</dd>
+            <dd>Data de abertura: {{ chamado.dataAbertura }}</dd>
+            <dd>Data de fechamento: {{ chamado.dataFechamento | encerramento }}</dd>
+            <dt>Observações</dt>
+            <dd>{{ chamado.observacoes }}</dd>
+        </li>
+    </ul>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button mat-dialog-close color="warn" matTooltip="Fechar">
+            Fechar
+        </button>
+    </mat-dialog-actions>
+</mat-card>
