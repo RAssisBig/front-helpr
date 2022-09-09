@@ -9,13 +9,17 @@ import { ClienteCreateComponent } from './children/cliente-create/cliente-create
 import { FormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { ClienteUpdateComponent } from './children/cliente-update/cliente-update.component';
+import { ChamadosClientesComponent } from './children/chamados-clientes/chamados-clientes.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 @NgModule({
   declarations: [
     ClientesComponent,
     ClienteCreateComponent,
-    ClienteUpdateComponent
+    ClienteUpdateComponent,
+    ChamadosClientesComponent
   ],
   imports: [
     CommonModule,
@@ -23,12 +27,16 @@ import { ClienteUpdateComponent } from './children/cliente-update/cliente-update
     MaterialModule,
     NavBarModule,
     FormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    MatDialogModule,
+    PipesModule
   ],
   exports: [
     ClientesComponent,
     ClienteCreateComponent,
-    ClienteUpdateComponent
+    ClienteUpdateComponent,
+    ChamadosClientesComponent
   ]
 })
 export class ClientesModule { }
+
