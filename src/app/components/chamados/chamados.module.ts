@@ -12,8 +12,7 @@ import { ChamadoDetailsComponent } from './children/chamado-details/chamado-deta
 import { ChamadoClientsComponent } from './children/chamado-clients/chamado-clients.component';
 import { ChamadoTecnicosComponent } from './children/chamado-tecnicos/chamado-tecnicos.component';
 import { LogPrioridadeComponent } from './children/log-prioridade/log-prioridade.component';
-
-
+import { LogStatusComponent } from './children/log-status/log-status.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +22,8 @@ import { LogPrioridadeComponent } from './children/log-prioridade/log-prioridade
     ChamadoDetailsComponent,
     ChamadoClientsComponent,
     ChamadoTecnicosComponent,
-    LogPrioridadeComponent
+    LogPrioridadeComponent,
+    LogStatusComponent
   ],
   imports: [
     CommonModule,
@@ -39,6 +39,7 @@ import { LogPrioridadeComponent } from './children/log-prioridade/log-prioridade
     ChamadoCreateComponent,
     ChamadoUpdateComponent,
     LogPrioridadeComponent,
+    LogStatusComponent
     
     
     
